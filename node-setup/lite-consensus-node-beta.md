@@ -6,7 +6,11 @@ description: Light-weight non-archival consensus node
 
 If you don't wish to run a full archival node, you can choose to run a light-weight consensus node that has \~90% savings in disk space requirements. The Lite Consensus Node achieves the disk space savings by pruning the state DB and only keeping a set of the most recent Periods.&#x20;
 
-> Lite node requires pruning, and you need to restart your lite node for pruning to start. It's recommended to set up a script to periodically restart the lite node to keep disk space usage to a mininum.&#x20;
+> Note: due to the extremely large size the Taraxa L1 state has become, pruning has become quite slow for un-optimized machines. In our default published light node docker compose YML file we have disabled the "--light" flag to avoid pruning.&#x20;
+>
+> Instead, we recommend that validators simply sync from lite node snapshots periodically to keep disk space usage under control. The dev team is working on improved pruning in the meantime.&#x20;
+>
+> Please read the guide on how to [sync from snapshot](syncing-from-snapshot.md).&#x20;
 
 Here are the [hardware requirements for a lite consensus node](../become-a-validator/consensus-node-hardware-requirements.md).&#x20;
 
@@ -42,7 +46,11 @@ docker-compose logs
 
 ### 1.3  Syncing from snapshot
 
-Because the Taraxa network state has gotten very large, it takes quite a long time to sync. An alternative is to sync from a snapshot, which will drastically cut down on the amount of syncing time and can get  your node up & running much more quickly.&#x20;
+
+
+Note: due to the extremely large size the Taraxa L1 state has become, pruning has become quite slow for un-optimized machines. In our default published light node docker compose YML file we have disabled the "--light" flag to avoid pruning.&#x20;
+
+Instead, we recommend that validators simply sync from lite node snapshots periodically to keep disk space usage under control. The dev team is working on improved pruning in the meantime.&#x20;
 
 Please read the guide on how to [sync from snapshot](syncing-from-snapshot.md), and due to the increased state, pruning can take a very long time as well, so please also be sure to read about the [lite node performance considerations](https://taraxa.gitbook.io/taraxa-network/node-setup/syncing-from-snapshot#light-node-performance-considerations) section on tactics to avoid pruning altogether.&#x20;
 
