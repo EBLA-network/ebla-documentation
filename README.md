@@ -4,6 +4,12 @@ description: Thanks for dropping by the Taraxa Project!
 
 # 👋 Welcome!
 
+## Validators, please upgrade your node!
+
+To Taraxa validators, please upgrade your node to the latest version 1.14.2, this will help the network recover and make progress again, thank you!
+
+\>>>> [Node Upgrade Instructions](become-a-validator/node-upgrade-and-reset.md) <<<[<br>](https://x.com/taraxa_project/status/2031830608394035407)
+
 ## Taraxa is the next-gen Layer-1
 
 Taraxa is an EVM-compatible smart contract platform based on t-Graph consensus utilizing blockDAG, with many world-first technical innovations.&#x20;
@@ -36,7 +42,7 @@ This is why we created Taraxa.&#x20;
 * Get started with [creating a wallet for Taraxa](wallet/)&#x20;
 * [Stake your TARA](staking/)
 * [Network explorer](https://explorer.mainnet.taraxa.io/)&#x20;
-* Our most recent [development roadmap](broken-reference)
+* Our most recent [development roadmap](/broken/pages/vm20JsdEkL23WcwibFP3)
 
 #### For developers, check out,&#x20;
 
