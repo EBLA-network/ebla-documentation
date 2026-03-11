@@ -8,7 +8,11 @@ description: Thanks for dropping by the Taraxa Project!
 
 To Taraxa validators, please upgrade your node to the latest version 1.14.2, this will help the network recover and make progress again, thank you!
 
-\>>>> [Node Upgrade Instructions](become-a-validator/node-upgrade-and-reset.md) <<<[<br>](https://x.com/taraxa_project/status/2031830608394035407)
+{% hint style="info" %}
+[Node Upgrade Instructions](become-a-validator/node-upgrade-and-reset.md)&#x20;
+{% endhint %}
+
+##
 
 ## Taraxa is the next-gen Layer-1
 
