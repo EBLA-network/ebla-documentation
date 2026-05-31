@@ -16,7 +16,7 @@ Here's the official guide from Metamask on [How to create an additional account 
 
 Most ETH-compatible wallets allow you to add a "custom network". As long as that network is ETH-compatible - which EBLA is - everything just works.&#x20;
 
-You have two options to add EBLA as a custom network into Metamask: adding it [via Chainlist](https://chainlist.org/chain/841), or doing it manually yourself.&#x20;
+You have two options to add EBLA as a custom network into Metamask: adding it [via Chainlist](https://chainlist.org/chain/60186), or doing it manually yourself.&#x20;
 
 ##
 
