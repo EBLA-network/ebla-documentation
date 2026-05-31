@@ -12,34 +12,11 @@ EBLA token would also provide the economic incentives which will be distributed 
 
 ### 5.1 Token Supply
 
-The overall EBLA token supply is 10 billion tokens, with all tokens minted in the genesis block at network launch.
+EBLA has a hard cap of 12 billion tokens. 5 billion are preminted at genesis; the remaining 7 billion are released over time as DPoS staking rewards.
 
-There will be inflation (see the section on [Rewards](economic-model.md#5-5-rewards)) which comes in the form of block rewards providing staking yield, but will only inflate upon stakes that are in circulation and have been delegated to consensus nodes. In other words, any tokens that are locked cannot be staked or delegated, therefore generates no inflation.&#x20;
+There will be inflation (see the section on [Rewards](economic-model.md#5-4-rewards)) which comes in the form of block rewards providing staking yield, but will only inflate upon stakes that are in circulation and have been delegated to consensus nodes. In other words, any tokens that are locked cannot be staked or delegated, therefore generates no inflation.&#x20;
 
-### 5.2 Token Distribution
-
-The target tokens distribution will be as follows,
-
-| Distribution              |     % |
-| ------------------------- | ----: |
-| Seed sales                |    9% |
-| Private sales             | 15.1% |
-| Public sales              | 11.8% |
-| Team                      |   15% |
-| Foundation                |   20% |
-| Community & Ecosystem     | 28.4% |
-| Exchange Security Deposit | 0.65% |
-
-* **Seed** and **Private** rounds took place in 2018.
-* **Public Sale** took place in March of 2021, the proceeds of which will go to fund the ongoing technology development, business development, as well as token listing in the short-term.
-* Ebla’s **team** members committed to the long-term success of the network and will hold their token allocations for an extended period.
-* The EBLA **Foundation** intends to keep a certain number of tokens indefinitely (not to be sold) to help bootstrap and continue to participate in the decentralized network’s operations.
-* **Community & Ecosystem** funds are used to ensure the ongoing health and sustainability of the EBLA ecosystem, including funding for development grants, bug bounties, driving application adoption, and raising awareness in the medium to long-term.
-* **Exchange Security Deposits** were security deposits mandated by the exchanges the Foundation has partnered with, these are not meant to be circulated.
-
-###
-
-### 5.3 Token Utility
+### 5.2 Token Utility
 
 **Transaction Fees**
 
@@ -51,7 +28,7 @@ EBLA token holders may choose to stake their tokens via bonding to become an eli
 
 Specific rules for validator eligibility will be set at network launch and are subject to change per stakeholders’ voting. In general, we want there to be a minimum amount staked and/or delegated to a specific node to participate in consensus, but we want to keep that threshold low to maximize participation. We also want to make sure there's a cap for the amount of tokens staked and/or delegated to a single consensus node, so that there isn't excessive concentration (centralization) of stake into any particular node.
 
-### 5.4 Staking
+### 5.3 Staking
 
 Staking is a mechanism for stakeholders to signal their commitment to help maintain and grow the EBLA network, and they are rewarded (see Rewards section) accordingly. To stake, the stakeholder needs to bond EBLA tokens for a period, in return gaining additional weight in voting in governance-related decisions and become eligible to participate in the EBLA network’s consensus process and earning rewards.\
 \
@@ -81,9 +58,9 @@ The second consideration is economic. When large quantities of tokens are either
 
 The network will have a target staking rate the entire token supply to be determined at network launch. This is the “desired” number of tokens in the overall supply that is locked into stake, leaving the remaining tokens used for fees on the network. Having a target staking rate is meant to encourage the community to stake their coins and help secure the network.
 
-The target staking rate is tentatively set at 67%, which if reached will deny the 1/3 attack vector.
+The target staking rate is tentatively set at 67%. EBLA finalizes blocks at a 5/8 (62.5%) quorum, so a high staking rate raises the cost of acquiring enough stake to threaten consensus.
 
-### 5.5 Rewards
+### 5.4 Rewards
 
 Rewards in EBLA are made up of block rewards and transaction fees. \\
 
@@ -93,11 +70,11 @@ Block rewards (EBLA tokens) will be distributed to incentivize stakeholders to h
 
 Block rewards come in the form of inflation on top of the staked tokens. Since only nodes with sufficient staking or have received sufficient delegated stake are eligible to produce blocks, the amount of block rewards can be thought of as a direct yield which will be added to the total staked token supply.
 
-To incentivize the community to reach the target staking rate, the yield will be progressively increasing until it peaks at the target rate, then falls down as the network exceeds the target rate.
+Staking yield in EBLA follows a fixed schedule set at genesis: it starts at 7% and decays epoch-by-epoch toward a 1% floor.
 
 ![](<../.gitbook/assets/staking reward.png>)
 
-We tentatively set the maximum staking yield to be 20%.
+The initial yield is 7%.
 
 Block rewards are dispersed to staked validators the successful completion of these activities,
 
@@ -121,14 +98,10 @@ Just like block rewards, fees are going to be dispersed to staked validators for
 
 ***
 
-**No Slashing**
+**Inactivity Slashing**
 
-EBLA will not implement a slashing or punishment mechanisms at this moment.
+EBLA applies inactivity slashing. A validator's effective voting power decays while it fails to produce blocks, and it is force-undelegated (evicted) if its effective stake falls below the 5,000 EBLA eligibility threshold. Producing a block restores the validator's full voting power.
 
-It is incredibly difficult to design economic incentive schemes that properly motivate players in a system to behave in ways that are deemed constructive. As a rule, such mechanisms need to be as simple as possible, as more complexity creates more opportunities to game these mechanisms.
-
-Reward mechanisms are already difficult to design and get “right”, punishment mechanisms are even harder, as a faulty punishment mechanism generating false positives is far more likely to incite a backlash and inject vitriol into the ecosystem.
-
-At this point in time, we believe the lack of a reward should be sufficient “punishment” without the need to add further complexity.
+This keeps consensus weighted toward validators that are actively participating, without touching the underlying delegated balances.
 
 ##
