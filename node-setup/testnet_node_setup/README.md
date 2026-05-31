@@ -1,5 +1,5 @@
 ---
-description: A guide to all the ways you can run a Taraxa node
+description: A guide to all the ways you can run a EBLA node
 ---
 
 # ⚙ Deploy A Node
@@ -45,7 +45,7 @@ Choose your preferred cloud provider...
 {% endcontent-ref %}
 
 {% hint style="info" %}
-If you want to help create install scripts and documentation for additional VPS platforms we offer [bounty rewards](https://community.taraxa.io).
+If you want to help create install scripts and documentation for additional VPS platforms we offer [bounty rewards](https://community.eblanetwork.com).
 {% endhint %}
 
 ## Minimal requirements

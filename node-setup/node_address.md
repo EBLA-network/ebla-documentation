@@ -7,7 +7,7 @@ description: Guide for getting your node's public address
 To find out your node's public address you can run the following command in a new terminal window while the node is running:
 
 ```
-docker exec taraxa_compose_node_1 cat /opt/taraxa_data/conf/wallet.json
+docker exec ebla_compose_node_1 cat /opt/ebla_data/conf/wallet.json
 ```
 
 You should see an output similar to the following:

@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Mac
+description: Guide for running the EBLA Node with Docker on Mac
 ---
 
 # Mac
@@ -50,7 +50,7 @@ When Docker starts you should see this screen. We can close the Docker window no
 
 ## 2. Open Terminal
 
-We need to use the `Terminal` application in order to start the Taraxa Node image.
+We need to use the `Terminal` application in order to start the EBLA Node image.
 
 You can find the app in the `Utilities` directory under `Applications`.
 
@@ -66,46 +66,46 @@ You should see a window similar to this:
 
 ![Terminal Open](../../.gitbook/assets/13-terminal-open.png)
 
-## 3. Start Taraxa
+## 3. Start EBLA
 
 We have to run the following commands one by one:
 
 ```bash
 cd ~/Desktop
-curl -L https://github.com/Taraxa-project/taraxa-ops/archive/refs/heads/master.zip > master.zip && unzip master.zip && rm -f master.zip
+curl -L https://github.com/EBLA-network/ebla-ops/archive/refs/heads/master.zip > master.zip && unzip master.zip && rm -f master.zip
 ```
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://docs.taraxa.io/node-setup/testnet\_node\_setup/github\_blocked) document.
+GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://docs.eblanetwork.com/node-setup/testnet\_node\_setup/github\_blocked) document.
 {% endhint %}
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
+cd ~/Desktop/ebla-ops-master/ebla_compose
 docker-compose up -d
 docker-compose logs -f
 ```
 
-Now Docker is pulling the Taraxa Node image. You should see something similar to this:
+Now Docker is pulling the EBLA Node image. You should see something similar to this:
 
-![Starting Taraxa](../../.gitbook/assets/14-starting.png)
+![Starting EBLA](../../.gitbook/assets/14-starting.png)
 
 After it finishes pulling the latest version the node will start and you should see something similar to the following:
 
-![Taraxa Started](../../.gitbook/assets/15-started.png)
+![EBLA Started](../../.gitbook/assets/15-started.png)
 
 \*\*NOTE: \*\*_You can press_ `CTRL` + `C` _to stop displaying the logs_
 
-## 4. Updating the Taraxa Node
+## 4. Updating the EBLA Node
 
 From time to time we will release new versions of the node software. Try to keep it up to date using the following commands:
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
-curl -0 https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/Desktop/ebla-ops-master/ebla_compose
+curl -0 https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
 ```
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://github.com/Taraxa-project/taraxa-documentation/tree/f4ee57d43b23f5ad4a2212fa5ec90254d9181f92/node-setup/testnet\_node\_setup/node-setup/github\_blocked.md) document.
+GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://github.com/EBLA-network/ebla-documentation/tree/f4ee57d43b23f5ad4a2212fa5ec90254d9181f92/node-setup/testnet\_node\_setup/node-setup/github\_blocked.md) document.
 {% endhint %}
 
 ```bash
@@ -118,7 +118,7 @@ docker-compose logs -f
 During the testing period, we will also make changes on the protocol level and you will have to re-sync all the data. Don't worry, we will let you know. To remove the current data and do a full re-sync you have to run the following commands:
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
+cd ~/Desktop/ebla-ops-master/ebla_compose
 docker-compose down -v
 docker-compose pull
 docker-compose up -d

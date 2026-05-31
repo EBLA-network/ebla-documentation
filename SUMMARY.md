@@ -4,7 +4,7 @@
 * [💵 Wallet](wallet/README.md)
   * [Metamask](wallet/metamask.md)
   * [Ledger](wallet/ledger.md)
-  * [Taraxa's Network Connection Details](wallet/taraxas-network-connection-details.md)
+  * [EBLA's Network Connection Details](wallet/eblas-network-connection-details.md)
 * [🌱 Become a Validator](become-a-validator/README.md)
   * [⚙️ Set up validator node](become-a-validator/set-up-validator-node.md)
   * [🖥️ Consensus node hardware requirements](become-a-validator/consensus-node-hardware-requirements.md)
@@ -16,16 +16,16 @@
   * [🚩 Staking via community site](staking/staking-via-community-site.md)
   * [⛓️ Staking directly on-chain](staking/staking-directly-on-chain.md)
 
-## Develop on Taraxa <a href="#develop" id="develop"></a>
+## Develop on EBLA <a href="#develop" id="develop"></a>
 
-* [🚀 Start building on Taraxa!](develop/start-building-on-taraxa.md)
-* [🔗 Connecting to Taraxa](develop/connect-to-taraxas-network.md)
+* [🚀 Start building on EBLA!](develop/start-building-on-ebla.md)
+* [🔗 Connecting to EBLA](develop/connect-to-eblas-network.md)
 * [📓 Smart Contracts](develop/smart-contracts/README.md)
   * [Remix](develop/smart-contracts/remix.md)
 * [⚒️ Common frameworks & Examples](develop/common-frameworks-and-examples.md)
 * [🎱 Oracles](develop/oracles.md)
 * [💧 Testnet faucet](develop/testnet-faucet.md)
-* [🔩 Taraxa RPC Specs](develop/taraxa-rpc-specs.md)
+* [🔩 EBLA RPC Specs](develop/ebla-rpc-specs.md)
 
 ## Node Operations <a href="#node-setup" id="node-setup"></a>
 
@@ -67,7 +67,7 @@
 ## FAQ
 
 * [1️ 1️ Layer-1 Tech](faq/layer-1-tech.md)
-* [🪙 TARA Token](faq/tara-token.md)
+* [🪙 EBLA Token](faq/ebla-token.md)
 * [🌱 Mainnet](faq/mainnet.md)
 * [🔁 Exchange Integration](faq/exchange-integration.md)
 
@@ -75,7 +75,7 @@
 
 * [Abstract](tech-whitepaper/abstract.md)
 * [Intro: Scaling the World](tech-whitepaper/introduction.md)
-* [Taraxa Architecture](tech-whitepaper/taraxa-architecture.md)
+* [EBLA Architecture](tech-whitepaper/ebla-architecture.md)
 * [Economic Model](tech-whitepaper/economic-model.md)
 * [Governance](tech-whitepaper/governance.md)
 * [Further Reading](tech-whitepaper/further-reading.md)

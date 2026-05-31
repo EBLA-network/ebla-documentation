@@ -1,6 +1,6 @@
 # 🎱 Oracles
 
-Here are a list of oracles currently integrated into the Taraxa L1 ecosystem.&#x20;
+Here are a list of oracles currently integrated into the EBLA L1 ecosystem.&#x20;
 
 
 
@@ -8,20 +8,20 @@ Here are a list of oracles currently integrated into the Taraxa L1 ecosystem.&#x
 
 Stork is an oracle protocol that enables ultra low latency connections between data providers and both on and off-chain applications. The most common use-case for Stork is pulling and consuming market data in the form of real time price feeds for DeFi.
 
-Here are a few links to get you started with using Stork oracles on Taraxa.&#x20;
+Here are a few links to get you started with using Stork oracles on EBLA.&#x20;
 
 * Stork's [developer documentation](https://docs.stork.network/)
-* [Stork's contract address](https://docs.stork.network/resources/contract-addresses/evm#taraxa) on Taraxa's mainnet
+* [Stork's contract address](https://docs.stork.network/resources/contract-addresses/evm#ebla) on EBLA's mainnet
 * How to [consume data](https://docs.stork.network/getting-started/becoming-a-subscriber) on Stork
-* List of [asset pair IDs](https://docs.stork.network/resources/asset-id-registry) on the Stork oracle network, the `TARAUSD` is the asset pair ID for $TARA.&#x20;
+* List of [asset pair IDs](https://docs.stork.network/resources/asset-id-registry) on the Stork oracle network, the `TARAUSD` is the asset pair ID for $EBLA.&#x20;
 
 
 
 ## blocksense
 
-blocksense has a full suite of price feeds deployed on Taraxa, check them out here.&#x20;
+blocksense has a full suite of price feeds deployed on EBLA, check them out here.&#x20;
 
-[https://docs.blocksense.network/docs/contracts/deployed-contracts#taraxa-mainnet](https://docs.blocksense.network/docs/contracts/deployed-contracts#taraxa-mainnet)
+[https://docs.blocksense.network/docs/contracts/deployed-contracts#ebla-mainnet](https://docs.blocksense.network/docs/contracts/deployed-contracts#ebla-mainnet)
 
 
 

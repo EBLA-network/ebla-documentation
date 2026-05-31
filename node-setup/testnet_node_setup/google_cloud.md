@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Google Cloud
+description: Guide for running the EBLA Node with Docker on Google Cloud
 ---
 
 # Google Cloud
@@ -23,7 +23,7 @@ If you are running this on Windows you will first need to install Windows Subsys
 Download the node install script like so:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-GC.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-GC.sh)"
 ```
 
 Before running the script, if you have already set up a Google Cloud project you would like to use, you can use an environment variable USE_PROJECT_ID and provide the project's id there.
@@ -81,17 +81,17 @@ Change into root home and move your node to your personal home
 
 ```bash
 cd /root
-cd ./taraxa-ops/taraxa_compose
+cd ./ebla-ops/ebla_compose
 docker-compose down
 cd /root
-mv -R taraxa-ops /home/<your-user-account>
+mv -R ebla-ops /home/<your-user-account>
 exit
 ```
 
 Once back in your user account, start the node
 
 ```bash
-cd ~/taraxa-ops/taraxa_compose
+cd ~/ebla-ops/ebla_compose
 sudo docker-compose up -d
 ```
 

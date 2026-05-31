@@ -1,5 +1,5 @@
 ---
-description: Instructions for the easy upgrade of Taraxa nodes on the Testnet
+description: Instructions for the easy upgrade of EBLA nodes on the Testnet
 ---
 
 # ⏺ Upgrade a Node
@@ -10,7 +10,7 @@ We will be announcing node upgrades in our Discord and other communication chann
 
 ## Software Upgrade
 
-Software upgrades are needed when we make bug fixes and performance improvements to the node code. The Taraxa node is under very active development and improvement as we follow our roadmap to Mainnet.
+Software upgrades are needed when we make bug fixes and performance improvements to the node code. The EBLA node is under very active development and improvement as we follow our roadmap to Mainnet.
 
 {% content-ref url="software-upgrade.md" %}
 [software-upgrade.md](software-upgrade.md)

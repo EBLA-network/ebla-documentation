@@ -14,10 +14,10 @@ The testnet is reset pretty frequently. We use the testnet to deploy new feature
 {% tab title="Windows" %}
 Mainnet&#x20;
 
-Download the latest docker-compose file: [https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose\_mainnet/docker-compose.yml](https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose\_mainnet/docker-compose.yml)
+Download the latest docker-compose file: [https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose\_mainnet/docker-compose.yml](https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose\_mainnet/docker-compose.yml)
 
 ```bash
-cd .\Desktop\taraxa-ops-master\taraxa_compose\
+cd .\Desktop\ebla-ops-master\ebla_compose\
 docker-compose down -v
 docker-compose pull
 del config\mainnet.json
@@ -29,10 +29,10 @@ docker-compose logs -f// Some code
 
 Testnet
 
-Download the latest docker-compose file: [https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose/docker-compose.yml](https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose/docker-compose.yml)
+Download the latest docker-compose file: [https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose/docker-compose.yml](https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose/docker-compose.yml)
 
 ```bash
-cd .\Desktop\taraxa-ops-master\taraxa_compose\
+cd .\Desktop\ebla-ops-master\ebla_compose\
 docker-compose down -v
 docker-compose pull
 del config\testnet.json
@@ -45,8 +45,8 @@ docker-compose logs -f
 Mainnet
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
-curl -0 https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose_mainnet/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/Desktop/ebla-ops-master/ebla_compose
+curl -0 https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
 docker-compose down -v
 docker-compose pull
 rm -f config/mainnet.json
@@ -59,8 +59,8 @@ docker-compose logs -f
 Testnet
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
-curl -0 https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/Desktop/ebla-ops-master/ebla_compose
+curl -0 https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
 docker-compose down -v
 docker-compose pull
 rm -f config/testnet.json
@@ -73,8 +73,8 @@ docker-compose logs -f
 Mainnet
 
 ```bash
-cd ~/taraxa-ops-master/taraxa_compose
-wget -O docker-compose-new.yml https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose_mainnet/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/ebla-ops-master/ebla_compose
+wget -O docker-compose-new.yml https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
 sudo docker-compose down -v
 sudo docker-compose pull
 rm -f config/mainnet.json
@@ -87,8 +87,8 @@ sudo docker-compose logs -f
 Testnet
 
 ```bash
-cd ~/taraxa-ops-master/taraxa_compose
-wget -O docker-compose-new.yml https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/ebla-ops-master/ebla_compose
+wget -O docker-compose-new.yml https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
 sudo docker-compose down -v
 sudo docker-compose pull
 rm -f config/testnet.json

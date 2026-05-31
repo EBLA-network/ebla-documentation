@@ -26,13 +26,13 @@ Download and run the node install script for the type of node you wish to deploy
 
 **Mainnet Full Node:**
 
-<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Azure.sh)" mainnet
+<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Azure.sh)" mainnet
 </strong></code></pre>
 
 **Mainnet Light Node:**
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Azure.sh)" mainnet light
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Azure.sh)" mainnet light
 ```
 {% endtab %}
 
@@ -41,13 +41,13 @@ Download and run the node install script for the type of node you wish to deploy
 
 **Testnet Full Node:**
 
-<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Azure.sh)" testnet
+<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Azure.sh)" testnet
 </strong></code></pre>
 
 **Testnet Light Node:**
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Azure.sh)" testnet light
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Azure.sh)" testnet light
 ```
 {% endtab %}
 {% endtabs %}
@@ -89,17 +89,17 @@ Change into root home and move your node to your personal home
 
 ```bash
 cd /root
-cd ./taraxa-ops/taraxa_compose
+cd ./ebla-ops/ebla_compose
 docker-compose down
 cd /root
-mv -R taraxa-ops /home/<your-user-account>
+mv -R ebla-ops /home/<your-user-account>
 exit
 ```
 
 Once back in your user account, start the node
 
 ```bash
-cd ~/taraxa-ops/taraxa_compose
+cd ~/ebla-ops/ebla_compose
 sudo docker-compose up -d
 ```
 

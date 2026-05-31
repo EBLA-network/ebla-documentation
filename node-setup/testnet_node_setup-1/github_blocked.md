@@ -8,9 +8,9 @@ GitHub is blocked in some countries. To bypass this we have two options:
 
 ## 1. VPN Extension
 
-If you have VPN extension in your web browser activate your VPN extension and go to [this link](https://github.com/Taraxa-project/taraxa-ops).
+If you have VPN extension in your web browser activate your VPN extension and go to [this link](https://github.com/EBLA-network/ebla-ops).
 
-![Download Taraxa Scripts](../../.gitbook/assets/15-download-scripts.png)
+![Download EBLA Scripts](../../.gitbook/assets/15-download-scripts.png)
 
 Click on "Download ZIP" under the "Code" menu and the download should start.
 
@@ -22,7 +22,7 @@ For Mac: `Desktop`
 
 For Linux: `Your home directory (~)`
 
-You should now have a directory called `taraxa-ops-master` in the previous locations that contains another directory named `taraxa_compose`. If your OS named the parent directory differently rename it to `taraxa-ops-master`.
+You should now have a directory called `ebla-ops-master` in the previous locations that contains another directory named `ebla_compose`. If your OS named the parent directory differently rename it to `ebla-ops-master`.
 
 Now you can go back to the documentation for your operating system and run the same commands.
 
@@ -32,14 +32,14 @@ If you still can't access GitHub you can run the Docker image manually without D
 
 ### Run node with Docker
 
-The first steps is to create a taraxa directory somewhere on your computer.
+The first steps is to create a ebla directory somewhere on your computer.
 
 For Windows:
 
 ```bash
 cd .\Desktop\
-mkdir taraxa
-cd taraxa
+mkdir ebla
+cd ebla
 mkdir data
 mkdir conf
 ```
@@ -48,26 +48,26 @@ For Mac:
 
 ```bash
 cd ~/Desktop
-mkdir -p taraxa/data
-mkdir -p taraxa/conf
-cd taraxa
+mkdir -p ebla/data
+mkdir -p ebla/conf
+cd ebla
 ```
 
 For Linux:
 
 ```bash
 cd ~/
-mkdir -p taraxa/data
-mkdir -p taraxa/conf
-cd taraxa
+mkdir -p ebla/data
+mkdir -p ebla/conf
+cd ebla
 ```
 
 Now to configure and start the node we can run the following commands:
 
 ```
-docker run -d --name taraxa_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/taraxa_data taraxa/taraxa-node:latest taraxad --network-id 2 --wallet /opt/taraxa_data/conf/wallet.json --config /opt/taraxa_data/conf/testnet.json --data-dir /opt/taraxa_data/data --overwrite-config
+docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ebla/ebla-node:latest eblad --network-id 2 --wallet /opt/ebla_data/conf/wallet.json --config /opt/ebla_data/conf/testnet.json --data-dir /opt/ebla_data/data --overwrite-config
 
-docker logs -f taraxa_compose_node_1
+docker logs -f ebla_compose_node_1
 ```
 
 Now the node should start.
@@ -79,7 +79,7 @@ _NOTE: If Linux is complaining about permissions you can prefix these commands w
 To update the node we can run the following:
 
 ```bash
-docker rm -f taraxa_compose_node_1
+docker rm -f ebla_compose_node_1
 ```
 
 OPTIONAL: If there was a protocol upgrade we also have to remove the data in order to re-sync.
@@ -99,6 +99,6 @@ deltree /Y data
 Continued:
 
 ```
-docker pull taraxa/taraxa-node:latest
-docker run -d --name taraxa_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/taraxa_data taraxa/taraxa-node:latest taraxad --conf_taraxa /opt/taraxa_data/conf/testnet.json
+docker pull ebla/ebla-node:latest
+docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ebla/ebla-node:latest eblad --conf_ebla /opt/ebla_data/conf/testnet.json
 ```

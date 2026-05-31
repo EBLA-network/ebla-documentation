@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Vultr
+description: Guide for running the EBLA Node with Docker on Vultr
 ---
 
 # Vultr
@@ -18,7 +18,7 @@ You can find a personal access token on this page:
 
 Make a note of that key. We will use it in the next step.
 
-## 3. Creating a Taraxa Node
+## 3. Creating a EBLA Node
 
 {% hint style="danger" %}
 If you are running this on Windows you will first need to install Windows Subsystem for Linux. You can use [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
@@ -33,12 +33,12 @@ export VULTR_API_KEY=your_api_key
 Then you can download and run the node creation script using this command:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Vultr.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Vultr.sh)"
 ```
 
 Now you should see a new droplet in your Vultr account and you should receive an email with the login details.
 
-_NOTE: It takes a few minutes after the droplet starts to install the Taraxa Node software._
+_NOTE: It takes a few minutes after the droplet starts to install the EBLA Node software._
 
 ## 4. Check the logs
 
@@ -47,5 +47,5 @@ You can use the following commands to check if the node is up and running:
 ```bash
 sudo docker ps
 
-sudo docker logs -f taraxa_compose_node_1
+sudo docker logs -f ebla_compose_node_1
 ```

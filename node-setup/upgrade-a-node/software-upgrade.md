@@ -14,10 +14,10 @@ The difference between Mainnet and Testnet scripts are in the YAML files, please
 {% tab title="Windows" %}
 Mainnet&#x20;
 
-Download the latest docker-compose file: [https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose\_mainnet/docker-compose.yml](https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose\_mainnet/docker-compose.yml)
+Download the latest docker-compose file: [https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose\_mainnet/docker-compose.yml](https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose\_mainnet/docker-compose.yml)
 
 ```bash
-cd .\Desktop\taraxa-ops-master\taraxa_compose\
+cd .\Desktop\ebla-ops-master\ebla_compose\
 docker-compose down
 docker-compose pull
 docker-compose up -d
@@ -28,10 +28,10 @@ docker-compose logs -f
 
 Testnet
 
-Download the latest docker-compose file: [https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose/docker-compose.yml](https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa\_compose/docker-compose.yml)
+Download the latest docker-compose file: [https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose/docker-compose.yml](https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla\_compose/docker-compose.yml)
 
 ```bash
-cd .\Desktop\taraxa-ops-master\taraxa_compose\
+cd .\Desktop\ebla-ops-master\ebla_compose\
 docker-compose down
 docker-compose pull
 docker-compose up -d
@@ -43,8 +43,8 @@ docker-compose logs -f
 Mainnet
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
-curl -0 https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose_mainnet/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/Desktop/ebla-ops-master/ebla_compose
+curl -0 https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
 docker-compose down
 docker-compose pull
 docker-compose up -d
@@ -56,8 +56,8 @@ docker-compose logs -f
 Testnet
 
 ```bash
-cd ~/Desktop/taraxa-ops-master/taraxa_compose
-curl -0 https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/Desktop/ebla-ops-master/ebla_compose
+curl -0 https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose/docker-compose.yml > docker-compose-new.yml && mv docker-compose-new.yml docker-compose.yml
 docker-compose down
 docker-compose pull
 docker-compose up -d
@@ -69,8 +69,8 @@ docker-compose logs -f
 Mainnet
 
 ```bash
-cd ~/taraxa-ops-master/taraxa_compose
-wget -O docker-compose-new.yml https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose_mainnet/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/ebla-ops-master/ebla_compose
+wget -O docker-compose-new.yml https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
 sudo docker-compose down
 sudo docker-compose pull
 sudo docker-compose up -d
@@ -82,8 +82,8 @@ sudo docker-compose logs -f
 Testnet
 
 ```bash
-cd ~/taraxa-ops-master/taraxa_compose
-wget -O docker-compose-new.yml https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
+cd ~/ebla-ops-master/ebla_compose
+wget -O docker-compose-new.yml https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose/docker-compose.yml && mv docker-compose-new.yml docker-compose.yml
 sudo docker-compose down
 sudo docker-compose pull
 sudo docker-compose up -d
@@ -99,7 +99,7 @@ sudo docker-compose logs -f
 
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://github.com/Taraxa-project/taraxa-documentation/tree/f4ee57d43b23f5ad4a2212fa5ec90254d9181f92/node-setup/testnet\_node\_setup/node-setup/github\_blocked.md) document.
+GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://github.com/EBLA-network/ebla-documentation/tree/f4ee57d43b23f5ad4a2212fa5ec90254d9181f92/node-setup/testnet\_node\_setup/node-setup/github\_blocked.md) document.
 {% endhint %}
 
 {% hint style="info" %}

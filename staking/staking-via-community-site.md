@@ -10,13 +10,13 @@ If you still wish to use the community site, please follow the steps below.&#x20
 
 ### 0.  Register an account on the community site&#x20;
 
-Navigate to the [community site](http://community.taraxa.io/) and register an account.&#x20;
+Navigate to the [community site](http://community.eblanetwork.com/) and register an account.&#x20;
 
 <figure><img src="../.gitbook/assets/1. register.png" alt=""><figcaption></figcaption></figure>
 
 ### 1.  Pass KYC
 
-To claim rewards (e.g., staking commission, yields) from the community site, you must pass KYC. It is in the [profile section](https://community.taraxa.io/profile).&#x20;
+To claim rewards (e.g., staking commission, yields) from the community site, you must pass KYC. It is in the [profile section](https://community.eblanetwork.com/profile).&#x20;
 
 > DISCLAIMER: To comply with recent SEC rulings, United States persons and persons from OFAC-sanctioned regions cannot receive token rewards from running nodes. All participants will be required to pass KYC to receive rewards.
 
@@ -24,21 +24,21 @@ To claim rewards (e.g., staking commission, yields) from the community site, you
 
 ### 2.  Connect your wallet
 
-Connect your wallet (upper-right corner). You may use any web3-enabled wallet that works with the Taraxa network, we recommend MetaMask.&#x20;
+Connect your wallet (upper-right corner). You may use any web3-enabled wallet that works with the EBLA network, we recommend MetaMask.&#x20;
 
 <figure><img src="../.gitbook/assets/9. profile (connect wallet).png" alt=""><figcaption></figcaption></figure>
 
 ### 3.  Delegate to a validator
 
-Once your wallet is connected, navigate to the [community site's staking page](https://community.taraxa.io/staking) and select one ore more validators to delegate to.&#x20;
+Once your wallet is connected, navigate to the [community site's staking page](https://community.eblanetwork.com/staking) and select one ore more validators to delegate to.&#x20;
 
-On this page you'll see a list of validators that have listed their nodes up for delegation. The "Avalailable for Delegation" shows you how much more delegation this specific node is able to take in. Each node can take on a total of 80 million TARA in delegation, beyond that no more delegation is possible for the specific node.&#x20;
+On this page you'll see a list of validators that have listed their nodes up for delegation. The "Avalailable for Delegation" shows you how much more delegation this specific node is able to take in. Each node can take on a total of 80 million EBLA in delegation, beyond that no more delegation is possible for the specific node.&#x20;
 
 _NOTE: the dev team is working to gather and display past uptime statistics (work in progress) so that you may make an informed choice on which validator to delegate your tokens to. Uptime is critical as it impacts the effective yield rate - i.e., if a node is not turned on, it does not earn any yields._&#x20;
 
 <figure><img src="../.gitbook/assets/4. delegate to a node.png" alt=""><figcaption></figcaption></figure>
 
-Minimum delegation per validator node is 1000 TARA.&#x20;
+Minimum delegation per validator node is 1000 EBLA.&#x20;
 
 <figure><img src="../.gitbook/assets/5. delegation screen.png" alt=""><figcaption></figcaption></figure>
 
@@ -52,7 +52,7 @@ You may claim your staking yields by clicking the "Claim" button next to each of
 
 Sometimes if the validator node you're delegating to is under-performing, shut down, or for whatever reason you no longer wish to delegate to that node anymore, you could shift your delegation to another validator node. This is called re-delegation.&#x20;
 
-On the [staking page of the community site](https://community.taraxa.io/staking), you can see a button called "Shift delegation OUT" next to the validator nodes you have delegated to. This button helps you to move delegation OUT of that particular node and into another one.&#x20;
+On the [staking page of the community site](https://community.eblanetwork.com/staking), you can see a button called "Shift delegation OUT" next to the validator nodes you have delegated to. This button helps you to move delegation OUT of that particular node and into another one.&#x20;
 
 For example, let's say that a user is no longer happy with the validator node `0xC83e...`, and wants to shift delegation out of it, and INTO the validator node `0x94Ca...`&#x20;
 
@@ -76,7 +76,7 @@ Make sure to confirm that the re-delegation has gone through properly, refresh t
 
 <figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
-Here we see that indeed 500k TARA has been moved from validator node `0xC83e...`to `0x94Ca...` :tada:
+Here we see that indeed 500k EBLA has been moved from validator node `0xC83e...`to `0x94Ca...` :tada:
 
 
 

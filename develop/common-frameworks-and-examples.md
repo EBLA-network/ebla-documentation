@@ -1,10 +1,10 @@
 # ⚒️ Common frameworks & Examples
 
-## Using ETH Ecosystem Frameworks on Taraxa
+## Using ETH Ecosystem Frameworks on EBLA
 
-Taraxa is 100% EVM-compatible, that means there's nothing new to learn! Use your favorite frameworks from the ETH ecosystem and they will just work on Taraxa.&#x20;
+EBLA is 100% EVM-compatible, that means there's nothing new to learn! Use your favorite frameworks from the ETH ecosystem and they will just work on EBLA.&#x20;
 
-Here you can find a few video walkthroughs of how to set up common ETH frameworks on Taraxa,&#x20;
+Here you can find a few video walkthroughs of how to set up common ETH frameworks on EBLA,&#x20;
 
 * Foundry: [https://youtu.be/5\_6IqRoYQ24 ](https://youtu.be/5\_6IqRoYQ24)&#x20;
 * Hardhat: [https://youtu.be/8OrXHyBzgk4 ](https://youtu.be/8OrXHyBzgk4)

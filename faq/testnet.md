@@ -55,7 +55,7 @@ The development team has not yet done detailed network stress tests to see just 
 
 ## Testnet: why are there a few nodes producing far more blocks than the other nodes on the testnet?&#x20;
 
-If you go to the [Taraxa explorer's node page](https://explorer.testnet.taraxa.io/nodes) starting in 2022, you'll see a few nodes (6 as of this writing) that are producing far more blocks than the other nodes. Why is that?&#x20;
+If you go to the [EBLA explorer's node page](https://explorer.testnet.eblanetwork.com/nodes) starting in 2022, you'll see a few nodes (6 as of this writing) that are producing far more blocks than the other nodes. Why is that?&#x20;
 
 Those nodes are nodes maintained by the developer team. The reasons why the dev-operated nodes (which are _**excluded**_ from rewards, as they should be) are producing way more blocks is because they hold more delegation.&#x20;
 
@@ -69,7 +69,7 @@ Because the need to deploy new features to test out, and we want to do it quickl
 
 
 
-a change was made to the way PBFT blocks are proposed. Previously they didn't take into account delegation, now they do - this was made in this PR: [https://github.com/Taraxa-project/taraxa-node/pull/1382](https://github.com/Taraxa-project/taraxa-node/pull/1382). So this is why previously although the dev-operated nodes had more delegation, they weren't producing more PBFT blocks than your average community node. This change was made to make sure the testnet's code mirrors that of the mainnet's, as it should. Another question, why are the dev nodes producing SO many more blocks?&#x20;
+a change was made to the way PBFT blocks are proposed. Previously they didn't take into account delegation, now they do - this was made in this PR: [https://github.com/EBLA-network/ebla-node/pull/1382](https://github.com/EBLA-network/ebla-node/pull/1382). So this is why previously although the dev-operated nodes had more delegation, they weren't producing more PBFT blocks than your average community node. This change was made to make sure the testnet's code mirrors that of the mainnet's, as it should. Another question, why are the dev nodes producing SO many more blocks?&#x20;
 
 
 
@@ -89,27 +89,27 @@ Here's a list of commonly seen "errors" that you should NOT be concerned about,&
 
 ## Is incentivized testnet live?&#x20;
 
-We have an ongoing incentivized testnet, please check out this [step by step guide](https://taraxa.io/run\_node) to participate!&#x20;
+We have an ongoing incentivized testnet, please check out this [step by step guide](https://eblanetwork.com/run\_node) to participate!&#x20;
 
 ##
 
 ## How do I run a node?
 
-Please see our [node operation instructions](https://www.taraxa.io/run\_node).
+Please see our [node operation instructions](https://www.eblanetwork.com/run\_node).
 
-We recommend everyone who wants to run a node join our [Discord server](https://www.taraxa.io/discord) and look for the #node-operations channel.
+We recommend everyone who wants to run a node join our [Discord server](https://www.eblanetwork.com/discord) and look for the #node-operations channel.
 
 ##
 
 ## Is there a testnet?
 
-Yes, you can look at the testnet through our [explorer](https://explorer.testnet.taraxa.io). It is a test network so occasionally it will go down or get wiped, please join our [Discord server](https://www.taraxa.io/discord) for the latest information.
+Yes, you can look at the testnet through our [explorer](https://explorer.testnet.eblanetwork.com). It is a test network so occasionally it will go down or get wiped, please join our [Discord server](https://www.eblanetwork.com/discord) for the latest information.
 
 ##
 
 ## How do I report a problem?&#x20;
 
-First, join [Taraxa's Discord server](https://www.taraxa.io/discord) for technical discussions.&#x20;
+First, join [EBLA's Discord server](https://www.eblanetwork.com/discord) for technical discussions.&#x20;
 
 Always try include the following information when you're reporting a problem,&#x20;
 
@@ -129,13 +129,13 @@ Thanks for all your feedback!&#x20;
 
 Here's the command to generate logs from the node,&#x20;
 
-`docker logs taraxa_compose_node_1 > logs`
+`docker logs ebla_compose_node_1 > logs`
 
-Note that, the container is not always called `taraxa_compose_node_1` on every environment. If this doesn't wrok, please check to make sure - use `docker ps` to see a list of all your containers and figure out exactly what the name of your container is.&#x20;
+Note that, the container is not always called `ebla_compose_node_1` on every environment. If this doesn't wrok, please check to make sure - use `docker ps` to see a list of all your containers and figure out exactly what the name of your container is.&#x20;
 
 If the node has been running for a while, the log file might be too big, so it's a good idea just to get the latest few log entries, say 50,000,  you can try this,&#x20;
 
-`docker logs --tail 50000 taraxa_compose_node_1 > logs`
+`docker logs --tail 50000 ebla_compose_node_1 > logs`
 
 Now that you have the `logs` file, just send it to the dev team along with your problem report. Thanks!&#x20;
 
@@ -143,13 +143,13 @@ Now that you have the `logs` file, just send it to the dev team along with your 
 
 ## How do I tell if I have the latest version of the node?&#x20;
 
-Taraxa nodes are published via docker images to simplify deployment. Each image comes with its own digest, which is a unique identifier for the image. As long as your current image's digest matches that of the latest image, then you have the latest version.&#x20;
+EBLA nodes are published via docker images to simplify deployment. Each image comes with its own digest, which is a unique identifier for the image. As long as your current image's digest matches that of the latest image, then you have the latest version.&#x20;
 
 To **determine the digest of your own node**, use,&#x20;
 
 `docker image ls --digests`
 
-and find the digest of your node's image, typically named something like `taraxa_compose_node_1` or something extremely similar to it.&#x20;
+and find the digest of your node's image, typically named something like `ebla_compose_node_1` or something extremely similar to it.&#x20;
 
 To **find the latest image's digest**, go to our docker hub, find the latest image at top, click into it, and there should be at the top the digest that's labeled,&#x20;
 
@@ -167,7 +167,7 @@ You cannot delete a node and add it back again. If you delete a node, you have t
 
 To delete the wallet, find the `wallet.json` file and delete it. It is typically located here,&#x20;
 
-`taraxa-compose/config/wallet.json`
+`ebla-compose/config/wallet.json`
 
 If you cannot find it, just go to the root directory and try,&#x20;
 
@@ -208,9 +208,9 @@ We recommend comparing your node's synchronization status against the network pr
 There are several ways to tell,&#x20;
 
 * Go to your node's IP at port :3000, and see "Synced - Participating in consensus", or if you see that in your node's logs `STATUS: GOOD. NODE SYNCED AND PARTICIPATING IN CONSENSUS`
-* Go to the [explorer's node page](https://explorer.testnet.taraxa.io/nodes) and see if your address is listed, note it's paginated so you may not be on the first page
-* Search for your node's public address on the [explorer](https://explorer.testnet.taraxa.io/) and see how many blocks (if any) it has produced
-* Go to the [community site's node list](https://community.taraxa.io/node) and see if your node is listed active
+* Go to the [explorer's node page](https://explorer.testnet.eblanetwork.com/nodes) and see if your address is listed, note it's paginated so you may not be on the first page
+* Search for your node's public address on the [explorer](https://explorer.testnet.eblanetwork.com/) and see how many blocks (if any) it has produced
+* Go to the [community site's node list](https://community.eblanetwork.com/node) and see if your node is listed active
 
 Several things to note,&#x20;
 
@@ -248,14 +248,14 @@ A node is considered active only if it has been [fully synced](testnet.md#undefi
 
 A block-producing node should also show up on the explorer's node list.&#x20;
 
-* [Mainnet node list](https://mainnet.explorer.taraxa.io/node)&#x20;
-* [Testnet node list](https://testnet.explorer.taraxa.io/node)&#x20;
+* [Mainnet node list](https://mainnet.explorer.eblanetwork.com/node)&#x20;
+* [Testnet node list](https://testnet.explorer.eblanetwork.com/node)&#x20;
 
 ##
 
-## Testnet: I received TARA on my node after registration, what does that mean?&#x20;
+## Testnet: I received EBLA on my node after registration, what does that mean?&#x20;
 
-TARA tokens on the testnet are not real tokens, so please don't try to send those out (it won't work), and please do not send any tokens from another chain (e.g., ETH) into the testnet - it won't work and you'll lose your tokens.&#x20;
+EBLA tokens on the testnet are not real tokens, so please don't try to send those out (it won't work), and please do not send any tokens from another chain (e.g., ETH) into the testnet - it won't work and you'll lose your tokens.&#x20;
 
 The tokens are sent to your node as part of the faucet to generate some transaction traffic on the network, and that later on we will run community-driven stress tests which will require that everyone has some testnet tokens to send around.&#x20;
 
@@ -273,7 +273,7 @@ If you would like to save disk space, you can do two things.&#x20;
 
 **Step 1: please go to the config file**
 
-`/taraxa-ops-master/taraxa_compose/config/testnet.json`
+`/ebla-ops-master/ebla_compose/config/testnet.json`
 
 Inside this file, set,&#x20;
 
@@ -285,7 +285,7 @@ IMPORTANT: Now restart the node or just restart the entire machine. If you don't
 
 On a Linux system the db files are located here,&#x20;
 
-`./var/lib/docker/volumes/taraxa_compose_data/_data/db/`
+`./var/lib/docker/volumes/ebla_compose_data/_data/db/`
 
 The only files you need to keep are `db` and `state_db`. The rest you can just clear out.&#x20;
 
@@ -319,7 +319,7 @@ For example, the first line maps the `10002` port to the actual port of `10003`.
 
 ##
 
-## ERROR: No such container: taraxa\_compose\_node-1
+## ERROR: No such container: ebla\_compose\_node-1
 
 This happens when you're trying to access the node's container (e.g., when trying to produce the prove-you-own-your-node signature), but the container's name is wrong.&#x20;
 

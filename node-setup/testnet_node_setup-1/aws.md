@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Amazon Web Services (AWS)
+description: Guide for running the EBLA Node with Docker on Amazon Web Services (AWS)
 ---
 
 # AWS
@@ -27,7 +27,7 @@ To create access keys for an IAM user:
 
 Make a note of that keys. We will use it in the next step.
 
-## 3. Creating a Taraxa Node
+## 3. Creating a EBLA Node
 
 {% hint style="danger" %}
 If you are running this on Windows you will first need to install Windows Subsystem for Linux. You can use [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
@@ -45,14 +45,14 @@ Otherwise, the installation script will ask you for access keys interactively
 Then you can download and run the node creation script using this command:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-AWS.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-AWS.sh)"
 ```
 
 Look carefully at the output of the script, if everything went well, the script will write the AWS region in which the node was deployed, the IP address of the node and the command to connect to the node via SSH.
 
 Now you should see a new server in your [AWS Console](https://console.aws.amazon.com/ec2/v2/home?#Instances) (select the correct region in which your node was deployed).
 
-_NOTE: It takes a few minutes after the droplet starts to install the Taraxa Node software._
+_NOTE: It takes a few minutes after the droplet starts to install the EBLA Node software._
 
 ## 4. Check the logs
 
@@ -60,5 +60,5 @@ You can use the following commands inside the created server to check if the nod
 
 ```bash
 sudo docker ps
-sudo docker logs -f taraxa_compose_node_1
+sudo docker logs -f ebla_compose_node_1
 ```

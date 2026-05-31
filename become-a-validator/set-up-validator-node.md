@@ -7,12 +7,12 @@ Instructions relating to running a validator node on the Mainnet are mostly iden
 ```bash
 mkdir -p mainnet/config
 cd mainnet
-wget https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/taraxa_compose_mainnet/docker-compose.yml
+wget https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml
 docker-compose up -d
 docker-compose logs
 ```
 
-Because the Taraxa network state has gotten very large, it takes quite a long time to sync. An alternative is to sync from a snapshot, which will drastically cut down on the amount of syncing time and can get  your node up & running much more quickly.&#x20;
+Because the EBLA network state has gotten very large, it takes quite a long time to sync. An alternative is to sync from a snapshot, which will drastically cut down on the amount of syncing time and can get  your node up & running much more quickly.&#x20;
 
 \>> [Latest snapshots](../node-setup/syncing-from-snapshot.md) <<&#x20;
 
@@ -22,11 +22,11 @@ Because the Taraxa network state has gotten very large, it takes quite a long ti
 
 You could also choose to run a lite-version of the consensus nodes, with \~90% SSD savings. It operates exactly the same as a full node, but prunes most of the historical states, keeping just a few recent Periods.&#x20;
 
-Please follow the [instructions on light consensus nodes](../node-setup/lite-consensus-node-beta.md#1.-lite-consensus-node-on-the-taraxa-mainnet).&#x20;
+Please follow the [instructions on light consensus nodes](../node-setup/lite-consensus-node-beta.md#1.-lite-consensus-node-on-the-ebla-mainnet).&#x20;
 
 > Lite node requires pruning, and you need to restart your lite node for pruning to start. It's recommended to set up a script to periodically restart the lite node to keep disk space usage to a mininum.&#x20;
 
-Because the Taraxa network state has gotten very large, it takes quite a long time to sync. An alternative is to sync from a snapshot, which will drastically cut down on the amount of syncing time and can get  your node up & running much more quickly.&#x20;
+Because the EBLA network state has gotten very large, it takes quite a long time to sync. An alternative is to sync from a snapshot, which will drastically cut down on the amount of syncing time and can get  your node up & running much more quickly.&#x20;
 
 \>> [Latest snapshots](../node-setup/syncing-from-snapshot.md) <<&#x20;
 

@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Vultr
+description: Guide for running the EBLA Node with Docker on Vultr
 ---
 
 # Vultr
@@ -18,7 +18,7 @@ You can find a personal access token on this page:
 
 Make a note of that key. We will use it in the next step.
 
-## 3. Creating a Taraxa Node
+## 3. Creating a EBLA Node
 
 {% hint style="danger" %}
 If you are running this on Windows you will first need to install Windows Subsystem for Linux. You can use [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
@@ -40,13 +40,13 @@ Download and run the node install script for the type of node you wish to deploy
 
 **Mainnet Full Node:**
 
-<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Vultr.sh)" mainnet
+<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Vultr.sh)" mainnet
 </strong></code></pre>
 
 **Mainnet Light Node:**
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Vultr.sh)" mainnet light
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Vultr.sh)" mainnet light
 ```
 {% endtab %}
 
@@ -55,20 +55,20 @@ Download and run the node install script for the type of node you wish to deploy
 
 **Testnet Full Node:**
 
-<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Vultr.sh)" testnet
+<pre class="language-bash"><code class="lang-bash"><strong>bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Vultr.sh)" testnet
 </strong></code></pre>
 
 **Testnet Light Node:**
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Vultr.sh)" testnet light
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Vultr.sh)" testnet light
 ```
 {% endtab %}
 {% endtabs %}
 
 Now you should see a new droplet in your Vultr account and you should receive an email with the login details.
 
-_NOTE: It takes a few minutes after the droplet starts to install the Taraxa Node software._
+_NOTE: It takes a few minutes after the droplet starts to install the EBLA Node software._
 
 ## 4. Check the logs
 
@@ -77,5 +77,5 @@ You can use the following commands to check if the node is up and running:
 ```bash
 sudo docker ps
 
-sudo docker logs -f taraxa_compose_node_1
+sudo docker logs -f ebla_compose_node_1
 ```

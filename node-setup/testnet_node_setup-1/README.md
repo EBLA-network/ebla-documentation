@@ -1,5 +1,5 @@
 ---
-description: A guide to installing a Taraxa node directly on a local machine
+description: A guide to installing a EBLA node directly on a local machine
 ---
 
 # ⚙ Install A Local Node
@@ -14,11 +14,11 @@ Installing a node takes only a few minutes. _The easiest way to deploy a persist
 
 ### Mainnet
 
-Running a mainnet node allows for participation in Taraxa's growing ecosystem either as a [validator](../../become-a-validator/) or as a node for relay, end users and applications.
+Running a mainnet node allows for participation in EBLA's growing ecosystem either as a [validator](../../become-a-validator/) or as a node for relay, end users and applications.
 
 ### Testnet
 
-Running a testnet node helps to ensure the continued improvement of the Taraxa protocol.   By [registering your node on the community site](../proof\_owership.md) you guarantee your node participates in testnet consensus as a validator and has the chance to earn rewards for helping improve Taraxa.
+Running a testnet node helps to ensure the continued improvement of the EBLA protocol.   By [registering your node on the community site](../proof\_owership.md) you guarantee your node participates in testnet consensus as a validator and has the chance to earn rewards for helping improve EBLA.
 
 ## Minimal Requirements
 

@@ -1,10 +1,10 @@
 ---
-description: Deploying Smart Contracts on Taraxa via Remix
+description: Deploying Smart Contracts on EBLA via Remix
 ---
 
 # Remix
 
-Here's a step-by-step example to deploy a simple contract onto Taraxa's mainnet via [Remix](https://remix.ethereum.org/).&#x20;
+Here's a step-by-step example to deploy a simple contract onto EBLA's mainnet via [Remix](https://remix.ethereum.org/).&#x20;
 
 
 
@@ -20,11 +20,11 @@ Here's a step-by-step example to deploy a simple contract onto Taraxa's mainnet 
 
 <figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-* Let's deploy, change the Environment to "Injected Provider - Metamask" and make sure that you're on the Taraxa Mainnet network on Metamask. If you don't know how, here's how you can [add Taraxa into Metamask](../../wallet/metamask.md).&#x20;
+* Let's deploy, change the Environment to "Injected Provider - Metamask" and make sure that you're on the EBLA Mainnet network on Metamask. If you don't know how, here's how you can [add EBLA into Metamask](../../wallet/metamask.md).&#x20;
 
 <figure><img src="../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
-* Make sure you have some TARA in your wallet, Confirm the Metamask transaction prompt (wallet address redacted).&#x20;
+* Make sure you have some EBLA in your wallet, Confirm the Metamask transaction prompt (wallet address redacted).&#x20;
 
 <figure><img src="../../.gitbook/assets/image (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -36,7 +36,7 @@ Here's a step-by-step example to deploy a simple contract onto Taraxa's mainnet 
 
 <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
-* We can also confirm this in the [explorer](https://explorer.mainnet.taraxa.io/), we can look up the transaction ID in the explorer and make sure the deployed contract address is the same. (certain details redacted)&#x20;
+* We can also confirm this in the [explorer](https://explorer.mainnet.eblanetwork.com/), we can look up the transaction ID in the explorer and make sure the deployed contract address is the same. (certain details redacted)&#x20;
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
@@ -50,4 +50,4 @@ Here's a step-by-step example to deploy a simple contract onto Taraxa's mainnet 
 
 <figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
-🎊🎊 That's it, you're done! You've successfully deployed a smart contract onto Taraxa. 🎊🎊
+🎊🎊 That's it, you're done! You've successfully deployed a smart contract onto EBLA. 🎊🎊

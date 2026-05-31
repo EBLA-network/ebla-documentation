@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Windows
+description: Guide for running the EBLA Node with Docker on Windows
 ---
 
 # Windows
@@ -80,14 +80,14 @@ When Docker Desktop starts successfuly you will see the yellow icon turn green.
 
 ![Docker Desktop Started](../../.gitbook/assets/14-docker-started.png)
 
-## 4. Download Taraxa scripts
+## 4. Download EBLA scripts
 
-In order to run the node we need a set of scripts. You can download the scripts from [this link](https://github.com/Taraxa-project/taraxa-ops).
+In order to run the node we need a set of scripts. You can download the scripts from [this link](https://github.com/EBLA-network/ebla-ops).
 
-![Download Taraxa Scripts](../../.gitbook/assets/15-download-scripts.png)
+![Download EBLA Scripts](../../.gitbook/assets/15-download-scripts.png)
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't access the previous link please refer to the [GitHub is blocked](https://docs.taraxa.io/node-setup/testnet\_node\_setup/github\_blocked) document.
+GitHub is blocked in some countries. If you can't access the previous link please refer to the [GitHub is blocked](https://docs.eblanetwork.com/node-setup/testnet\_node\_setup/github\_blocked) document.
 {% endhint %}
 
 Click on "Download ZIP" under the "Code" menu and the download should start.
@@ -114,7 +114,7 @@ You should see a new folder on your Desktop.
 
 ![Extracted](../../.gitbook/assets/21-extracted.png)
 
-## 5. Start the Taraxa Node
+## 5. Start the EBLA Node
 
 For starting the actual node software we need to use the PowerShell console.
 
@@ -131,16 +131,16 @@ You should see a window similar to this:
 Type the following commands one by one:
 
 ```bash
-cd .\Desktop\taraxa-ops-master\taraxa_compose\
+cd .\Desktop\ebla-ops-master\ebla_compose\
 docker-compose up -d
 docker-compose logs -f
 ```
 
 ![Go to Scripts Folder](../../.gitbook/assets/24-go-to-folder.png)
 
-Now docker is pulling the Taraxa Node image. You should see something similar to this:
+Now docker is pulling the EBLA Node image. You should see something similar to this:
 
-![Start the Taraxa Node](../../.gitbook/assets/25-docker-compose-up.png)
+![Start the EBLA Node](../../.gitbook/assets/25-docker-compose-up.png)
 
 After it finishes pulling the latest version the node will start and you should see something similar to the following:
 
@@ -148,9 +148,9 @@ After it finishes pulling the latest version the node will start and you should 
 
 \_NOTE: You can press `CTRL` + `C` to stop displaying the logs
 
-## 6. Update the Taraxa Node
+## 6. Update the EBLA Node
 
-From time to time we will announce software updates and breaking protocol changes to the testnet via the #node-operations channel in our [Taraxa community Discord](https://discord.com/invite/gCkYC9h8S6), Telegram channel and Twitter account.
+From time to time we will announce software updates and breaking protocol changes to the testnet via the #node-operations channel in our [EBLA community Discord](https://discord.com/invite/gCkYC9h8S6), Telegram channel and Twitter account.
 
 {% content-ref url="../upgrade-a-node/" %}
 [upgrade-a-node](../upgrade-a-node/)

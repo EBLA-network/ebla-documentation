@@ -6,9 +6,9 @@ description: Instructions for faster syncing by use of a recent snapshot
 
 ## What are Snapshots?&#x20;
 
-Snapshots are versions of the Taraxa network's overall state.&#x20;
+Snapshots are versions of the EBLA network's overall state.&#x20;
 
-The Taraxa network has an extremely high throughput, and hence a very large historical state. New nodes joining the network could have a very hard time syncing and catching up with the rest of the network if they start from scratch. So snapshots of the latest network state (with some delay) are provided so that new nodes won't have to start from scratch, and also making syncing a lite node much more painless.&#x20;
+The EBLA network has an extremely high throughput, and hence a very large historical state. New nodes joining the network could have a very hard time syncing and catching up with the rest of the network if they start from scratch. So snapshots of the latest network state (with some delay) are provided so that new nodes won't have to start from scratch, and also making syncing a lite node much more painless.&#x20;
 
 
 
@@ -23,7 +23,7 @@ Here are some examples,&#x20;
 LITE node snapshot
 
 ```
-curl "https://snapshots.taraxa.io/api?network=mainnet" -s | jq -r '.light.url'
+curl "https://snapshots.eblanetwork.com/api?network=mainnet" -s | jq -r '.light.url'
 ```
 
 ### Testnet
@@ -31,7 +31,7 @@ curl "https://snapshots.taraxa.io/api?network=mainnet" -s | jq -r '.light.url'
 LITE node snapshot
 
 ```
-curl "https://snapshots.taraxa.io/api?network=testnet" -s | jq -r '.light.url'
+curl "https://snapshots.eblanetwork.com/api?network=testnet" -s | jq -r '.light.url'
 ```
 
 ##
@@ -43,7 +43,7 @@ Follow the these steps:
 1. Download the snapshot (link above)
 2. Uncompress the snapshot archive
 3. Stop the node process
-4. Replace **`state_db`** and **`db`** folders into the data folder for your node. (Default path is `~/.taraxa/data` or as specified in your node config.)
+4. Replace **`state_db`** and **`db`** folders into the data folder for your node. (Default path is `~/.ebla/data` or as specified in your node config.)
 5. Restart your node to begin syncing from the block height of your snapshot.
 
 Congrats you are all done and node will sync faster than having started from the beginning!
@@ -60,8 +60,8 @@ Follow the these steps:
 4. Run the following commands in the terminal to copy them into your dockerized container: \`
 
 ```bash
-docker cp ./db $(docker ps --format "{{.Names}}" | grep mainnet | grep node):/opt/taraxa_data/data/db/db_new
-docker cp ./state_db $(docker ps --format "{{.Names}}" | grep mainnet | grep node):/opt/taraxa_data/data/db/state_db_new
+docker cp ./db $(docker ps --format "{{.Names}}" | grep mainnet | grep node):/opt/ebla_data/data/db/db_new
+docker cp ./state_db $(docker ps --format "{{.Names}}" | grep mainnet | grep node):/opt/ebla_data/data/db/state_db_new
 docker-compose down
 docker run --rm -it -v $(docker volume ls | awk '{print $2}' | grep -i mainnet):/data alpine ash -c "cd /data/db; mv db db_bk; mv state_db state_db_bk; mv db_new db; mv state_db_new state_db"
 docker-compose up -d
@@ -74,7 +74,7 @@ Congrats you are all done and node will sync faster than having started from the
 
 ## Snapshot Management
 
-The Taraxa node automatically downloads the latest blockchain snapshot on first start to speed up synchronization. The snapshot-puller container handles this process before the node starts.
+The EBLA node automatically downloads the latest blockchain snapshot on first start to speed up synchronization. The snapshot-puller container handles this process before the node starts.
 
 ### Default Behavior
 
@@ -108,7 +108,7 @@ To use a specific snapshot instead of the latest:
 
 ```
 environment:
-  - SNAPSHOT_URL=https://storage.googleapis.com/taraxa-snapshot/mainnet-light-db-block-19951895-20250723-044758.tar.gz
+  - SNAPSHOT_URL=https://storage.googleapis.com/ebla-snapshot/mainnet-light-db-block-19951895-20250723-044758.tar.gz
 ```
 
 #### Force Fresh Snapshot Download
@@ -141,7 +141,7 @@ This approach allows you to save disk space by regularly refreshing with the lat
 snapshot-puller:
   image: alpine:latest
   volumes:
-    - ./data:/opt/taraxa_data/data
+    - ./data:/opt/ebla_data/data
     - ./snapshot-init.sh:/snapshot-init.sh:ro
   environment:
     - NETWORK=mainnet
@@ -158,7 +158,7 @@ For users who want to save space without waiting for light node sync:
 snapshot-puller:
   image: alpine:latest
   volumes:
-    - ./data:/opt/taraxa_data/data
+    - ./data:/opt/ebla_data/data
     - ./snapshot-init.sh:/snapshot-init.sh:ro
   environment:
     - NETWORK=mainnet

@@ -1,21 +1,21 @@
 ---
-description: Detailed RPC specifications for the Taraxa Network
+description: Detailed RPC specifications for the EBLA Network
 ---
 
-# 🔩 Taraxa RPC Specs
+# 🔩 EBLA RPC Specs
 
-## Taraxa RPC's Ethereum Compatibility
+## EBLA RPC's Ethereum Compatibility
 
-Taraxa is nearly 100% ETH-compatible, with a few quirks, exceptions, and Taraxa-specific specs.&#x20;
+EBLA is nearly 100% ETH-compatible, with a few quirks, exceptions, and EBLA-specific specs.&#x20;
 
-## Quirks of ETH-RPC on Taraxa
+## Quirks of ETH-RPC on EBLA
 
 * "pending" block identifier means "latest"
 * `eth_syncing` return values are to be better defined
 
-## ETH-RPC not implemented on Taraxa
+## ETH-RPC not implemented on EBLA
 
-Taraxa protocol supports all Ethereum methods described on [this page](https://eth.wiki/json-rpc/API#json-rpc-methods) except:
+EBLA protocol supports all Ethereum methods described on [this page](https://eth.wiki/json-rpc/API#json-rpc-methods) except:
 
 * web3\_clientVersion
 * web3\_sha3
@@ -45,11 +45,11 @@ Taraxa protocol supports all Ethereum methods described on [this page](https://e
 
 All unimplemented methods will return a standard json-rpc error that the method is not present
 
-## Taraxa-Specific RPC Methods&#x20;
+## EBLA-Specific RPC Methods&#x20;
 
-### taraxa\_protocolVersion
+### ebla\_protocolVersion
 
-Returns current taraxa network protocol version
+Returns current ebla network protocol version
 
 #### Parameters
 
@@ -63,7 +63,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_protocolVersion","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_protocolVersion","params":[],"id":1}'
 
 // Result
 {
@@ -73,9 +73,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_protocolVersion","params"
 }
 ```
 
-### taraxa\_getVersion
+### ebla\_getVersion
 
-Returns extended description of Taraxa node version.
+Returns extended description of EBLA node version.
 
 #### Parameters
 
@@ -95,7 +95,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getVersion","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getVersion","params":[],"id":1}'
 
 // Result
 {
@@ -111,7 +111,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getVersion","params":[],"
 }
 ```
 
-### taraxa\_getDagBlockByHash
+### ebla\_getDagBlockByHash
 
 Returns information about DAG block by hash
 
@@ -145,7 +145,7 @@ Returns information about DAG block by hash
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getDagBlockByHash","params": ["0x73fabc5e2ff3863b8c8a313ee0200b915ef2f3606d24f3ff817a4655c04852a6", false],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getDagBlockByHash","params": ["0x73fabc5e2ff3863b8c8a313ee0200b915ef2f3606d24f3ff817a4655c04852a6", false],"id":1}'
 
 // Result
 {
@@ -179,7 +179,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getDagBlockByHash","param
 }
 ```
 
-### taraxa\_getDagBlockByLevel
+### ebla\_getDagBlockByLevel
 
 Returns information about DAG blocks for specified level
 
@@ -213,7 +213,7 @@ Returns information about DAG blocks for specified level
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getDagBlockByLevel","params":["0xEA1C6A", false],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getDagBlockByLevel","params":["0xEA1C6A", false],"id":1}'
 
 // Result
 {
@@ -247,7 +247,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getDagBlockByLevel","para
 }
 ```
 
-### taraxa\_dagBlockLevel
+### ebla\_dagBlockLevel
 
 Returns current maximum level of DAG
 
@@ -263,7 +263,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_dagBlockLevel","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_dagBlockLevel","params":[],"id":1}'
 
 // Result
 {
@@ -273,7 +273,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_dagBlockLevel","params":[
 }
 ```
 
-### taraxa\_dagBlockPeriod
+### ebla\_dagBlockPeriod
 
 Returns last period
 
@@ -289,7 +289,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_dagBlockPeriod","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_dagBlockPeriod","params":[],"id":1}'
 
 // Result
 {
@@ -299,7 +299,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_dagBlockPeriod","params":
 }
 ```
 
-### taraxa\_getScheduleBlockByPeriod
+### ebla\_getScheduleBlockByPeriod
 
 Returns PBFT block info with DAG block schedule for period
 
@@ -326,7 +326,7 @@ Returns PBFT block info with DAG block schedule for period
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getScheduleBlockByPeriod","params":["0x1D533B"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getScheduleBlockByPeriod","params":["0x1D533B"],"id":1}'
 
 // Result
 {
@@ -369,7 +369,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getScheduleBlockByPeriod"
 }
 ```
 
-### taraxa\_getConfig
+### ebla\_getConfig
 
 Returns current node configuration
 
@@ -391,7 +391,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getConfig","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getConfig","params":[],"id":1}'
 
 // Result
 {
@@ -486,7 +486,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getConfig","params":[],"i
 }
 ```
 
-### taraxa\_getChainStats
+### ebla\_getChainStats
 
 Returns current chain stats with count of transactions, PBFT blocks and DAG blocks
 
@@ -506,7 +506,7 @@ none
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getChainStats","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_getChainStats","params":[],"id":1}'
 
 // Result
 {
@@ -520,7 +520,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_getChainStats","params":[
 }
 ```
 
-### taraxa\_yield
+### ebla\_yield
 
 Returns calculated total network yield for specified period
 
@@ -539,7 +539,7 @@ To transform returned yield to fraction -> `decimal(yield) / 1e6`
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_yield","params":["0x1D533B"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_yield","params":["0x1D533B"],"id":1}'
 
 // Result
 {
@@ -549,7 +549,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_yield","params":["0x1D533
 }
 ```
 
-### taraxa\_totalSupply
+### ebla\_totalSupply
 
 Returns total supply for specified period
 
@@ -565,7 +565,7 @@ Returns total supply for specified period
 
 ```json
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"taraxa_totalSupply","params":["0x1D533B"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ebla_totalSupply","params":["0x1D533B"],"id":1}'
 
 // Result
 {
@@ -710,7 +710,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"get_peer_count","params":[],"id"
 
 ### get\_node\_status
 
-Returns current taraxa network protocol version
+Returns current ebla network protocol version
 
 #### Parameters
 
@@ -772,7 +772,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"get_node_status","params":[],"id
 
 ### get\_packets\_stats
 
-Returns current taraxa network protocol version
+Returns current ebla network protocol version
 
 #### Parameters
 

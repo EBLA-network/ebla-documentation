@@ -1,4 +1,4 @@
-# Taraxa Architecture
+# EBLA Architecture
 
 ## 2. Core Consensus
 
@@ -22,7 +22,7 @@ However, the block DAG topology isn’t without its own set of challenges, here 
 * Finality (confirmation latency)
 * Block efficiency - overlapping block contents
 
-Taraxa sets out to address these issues.
+EBLA sets out to address these issues.
 
 ### 2.2 Ordering via Anchor Chain
 
@@ -32,9 +32,9 @@ Here we note that you could remove the need for the initial clustering by simply
 
 ![GHOST pointer vs. a regular pointer](../.gitbook/assets/Figure\_4\_\[EN]\[1].png)
 
-At any given moment, a node can independently calculate which of the tips on the DAG it observes is the heaviest tip according to a modified version of the GHOST rule. In the original GHOST rule, all pointers are of equal weight. In Taraxa, the weight calculations only involve GHOST pointers – those that the proposing nodes calculated to be the heaviest. The remaining regular pointers are involved in total ordering. This mechanism guarantees an exponential falloff of reordering risk within the block DAG over time, and that different nodes’ view of which blocks are considered the heaviest blocks rapidly converge over time.
+At any given moment, a node can independently calculate which of the tips on the DAG it observes is the heaviest tip according to a modified version of the GHOST rule. In the original GHOST rule, all pointers are of equal weight. In EBLA, the weight calculations only involve GHOST pointers – those that the proposing nodes calculated to be the heaviest. The remaining regular pointers are involved in total ordering. This mechanism guarantees an exponential falloff of reordering risk within the block DAG over time, and that different nodes’ view of which blocks are considered the heaviest blocks rapidly converge over time.
 
-Taraxa’s use of Periods help to bound the complexity of the weights calculations, as the traversal stops upon hitting blocks that are members of a previously finalized Period.
+Ebla’s use of Periods help to bound the complexity of the weights calculations, as the traversal stops upon hitting blocks that are members of a previously finalized Period.
 
 From any block on the block DAG by following the heaviest blocks forward (towards the newest blocks), we can construct an Anchor Chain inside the DAG, much like the Main Chain proposed by OByte.
 
@@ -137,9 +137,9 @@ Lastly, having finalized periods across the block DAG effectively caps the compu
 
 ### 2.4 Fair & Efficient Proposals
 
-The first driver of wasted blocks is that there could simply be too many blocks if no rate-limiting mechanisms are in place. Classic blockchain projects like Bitcoin and Ethereum relies on Proof of Work (PoW) as a way to rate-limit block generation, but Taraxa uses a Proof of Stake (PoS) and we believe that the sheer amount of energy expended by PoW is not sustainable or socially responsible – we’d need a non-energy destroying method of limiting block generation rates.
+The first driver of wasted blocks is that there could simply be too many blocks if no rate-limiting mechanisms are in place. Classic blockchain projects like Bitcoin and Ethereum relies on Proof of Work (PoW) as a way to rate-limit block generation, but EBLA uses a Proof of Stake (PoS) and we believe that the sheer amount of energy expended by PoW is not sustainable or socially responsible – we’d need a non-energy destroying method of limiting block generation rates.
 
-Taraxa developed an algorithm that drives Fair and Efficient Proposals by leveraging Verifiable Random Function (VRF) and Verifiable Delay Function (VDF). VRF was first proposed by Micali et al. [\[7\]](further-reading.md#7-s-micali-m-rabin-and-s-vadhan-verifiable-random-functions-in-40th-foundations-of-computer-science-focs-new-york-oct-1999). It is a pseudo-random function which provides a proof of the outputs' correctness. VRFs also have the added property that the output is indistinguishable from a uniform function given an unpredictable input. VDF is a function that is meant to take a prescribed amount of time to compute, is highly resistant to parallel computations (i.e., avoids the hardware arms race of PoW), and whose output is extremely fast to verify. Taraxa makes use of a VDF first described by Wesolowski [\[8\]](further-reading.md#8-b-wesolowski-efficient-verifiable-delay-functions-cryptology-eprint-archive-report-2018-623-2018-https-eprint-iacr-org-2018-623).
+EBLA developed an algorithm that drives Fair and Efficient Proposals by leveraging Verifiable Random Function (VRF) and Verifiable Delay Function (VDF). VRF was first proposed by Micali et al. [\[7\]](further-reading.md#7-s-micali-m-rabin-and-s-vadhan-verifiable-random-functions-in-40th-foundations-of-computer-science-focs-new-york-oct-1999). It is a pseudo-random function which provides a proof of the outputs' correctness. VRFs also have the added property that the output is indistinguishable from a uniform function given an unpredictable input. VDF is a function that is meant to take a prescribed amount of time to compute, is highly resistant to parallel computations (i.e., avoids the hardware arms race of PoW), and whose output is extremely fast to verify. EBLA makes use of a VDF first described by Wesolowski [\[8\]](further-reading.md#8-b-wesolowski-efficient-verifiable-delay-functions-cryptology-eprint-archive-report-2018-623-2018-https-eprint-iacr-org-2018-623).
 
 At any given moment, a node's eligibility to propose a block requires the successful computation of a VDF with a difficulty factor set by a VRF. The VRF's inputs are simply the signature of the latest observed Period Block hash and the current level of the block DAG at which the node wishes to propose a block. The VDF is then adjusted for difficulty according to the output of the VRF, and the VDF's inputs are the block hash of the terminating DAG tip of the computed Anchor Chain, and the same inputs as the VRF.
 
@@ -180,7 +180,7 @@ Output: eligible - whether the node should publish, proof - proof of eligibility
 
 The second driver of wasted blocks is that transactions contained within different blocks could overlap with one another, causing redundancy. The most basic strategy to control this is to require that when a block is proposed, it contains none of the transactions included in the tips (parents) it is referencing. The proposer further has no financial incentive to reference older transactions in non-tip blocks as its block would likely either be rejected as malicious, or that these redundant transactions will be pruned during execution and proposer would have received nothing for its efforts. But this basic approach is often not enough if transactions begin to flood the network.
 
-Taraxa implements an algorithm that defines Transaction Jurisdiction for each node when they propose blocks in order to minimize overlap.
+EBLA implements an algorithm that defines Transaction Jurisdiction for each node when they propose blocks in order to minimize overlap.
 
 ![Transaction Jurisdiction](../.gitbook/assets/Figure\_8\_\[EN]\[1].png)
 
@@ -204,35 +204,35 @@ Output: available_tx – subset of pending transactions this node has jurisdicti
 
 Note that the block id of the past Period block and its signature need to be part of the block to act as proof to help other nodes to validate whether the correct jurisdiction has been used. For each such jurisdiction proof generated, it will remain valid for two (2) Periods to account for fuzzy boundary conditions between Periods due to propagation latency.
 
-Also note that, the implicit definition of work load in this algorithm is simply the transaction count. This is a reasonable measure of load during block generation since, in the Taraxa protocol, blocks on the block DAG are not executed immediately so the resulting computational load is purely based on validation, which is a relatively simple and fixed workload for both coin and smart contract transactions.
+Also note that, the implicit definition of work load in this algorithm is simply the transaction count. This is a reasonable measure of load during block generation since, in the EBLA protocol, blocks on the block DAG are not executed immediately so the resulting computational load is purely based on validation, which is a relatively simple and fixed workload for both coin and smart contract transactions.
 
 In both cases, there is no coordination between the nodes on block proposal eligibility and transaction jurisdiction and a certain amount of tolerance or “fuzziness” is built into the validation, thereby reducing the associated network overhead and attack surface.
 
 ## 3. Delegated Proof of Stake (DPOS)
 
-Participation in consensus at both the DAG and PBFT chain level is governed by a delegated proof of stake contract. Token holders can lockup Taraxa tokens in the DPOS contract and delegate shares to nodes. Nodes with sufficient stake delegated to them are able to participate in consensus. The economics of staking are discussed further in the "Economic Model" section of this paper. For purposes of the architecture the important properties are that (1) staking periods are measured in PBFT chain blocks, (2) deposits and withdrawals incur a delay of some number of PBFT chain blocks, and (3) a mapping is known to all nodes to associate PBFT blocks to DAG levels and thus determine DAG consensus participation eligibility.
+Participation in consensus at both the DAG and PBFT chain level is governed by a delegated proof of stake contract. Token holders can lockup EBLA tokens in the DPOS contract and delegate shares to nodes. Nodes with sufficient stake delegated to them are able to participate in consensus. The economics of staking are discussed further in the "Economic Model" section of this paper. For purposes of the architecture the important properties are that (1) staking periods are measured in PBFT chain blocks, (2) deposits and withdrawals incur a delay of some number of PBFT chain blocks, and (3) a mapping is known to all nodes to associate PBFT blocks to DAG levels and thus determine DAG consensus participation eligibility.
 
 The key result of these properties is that PBFT and DAG participation in consensus are known in advance of the most immediate current execution of calls to the DPOS smart contract and thus as discussed in the next section, execution is able to be done asynchronous (or only loosely synchronous) to consensus.
 
 ## 4. Optimized Asynchronous Execution Layer
 
-Taraxa is compatible with Ethereum Virtual Machine (EVM) contracts and operation codes. To implement the Taraxa execution layer numerous architectural improvements and optimizations have been made when compared to the EVM. In Taraxa asynchronous execution occurs from a queue of finalized PBFT chain blocks, which denote a "block of blocks" from finalized DAG periods. Because of this structure, PBFT is able to finalize consensus on very large set of transactions at a high rate.
+EBLA is compatible with Ethereum Virtual Machine (EVM) contracts and operation codes. To implement the EBLA execution layer numerous architectural improvements and optimizations have been made when compared to the EVM. In EBLA asynchronous execution occurs from a queue of finalized PBFT chain blocks, which denote a "block of blocks" from finalized DAG periods. Because of this structure, PBFT is able to finalize consensus on very large set of transactions at a high rate.
 
-In contrast to Ethereum, Taraxa avoids the expensive read from an Ethereum-modified Merkle Patrica Trie (EMPT), and instead reads state directly from the underlying database. This is implemented using RocksDB, and versioned access is handled using the timestamp feature of RocksDB. Databased reads and writes via the EMPT, which scales as log(N), are a major offender in performance and would be prohibitive give Taraxa's large transaction throughput. This approach used by Taraxa is made possible, in contrast to Ethereum (and more generally all other chains lacking in true finality), because there is no concern about reversion of state due to block reordering.
+In contrast to Ethereum, EBLA avoids the expensive read from an Ethereum-modified Merkle Patrica Trie (EMPT), and instead reads state directly from the underlying database. This is implemented using RocksDB, and versioned access is handled using the timestamp feature of RocksDB. Databased reads and writes via the EMPT, which scales as log(N), are a major offender in performance and would be prohibitive give EBLA's large transaction throughput. This approach used by EBLA is made possible, in contrast to Ethereum (and more generally all other chains lacking in true finality), because there is no concern about reversion of state due to block reordering.
 
-Within Taraxa, the sole purpose of maintaining an EMPT is for deriving state roots, and therefore we need only write to it. Therefore not only is transaction execution parallelized and asynchronous to consensus, but MPT writes are done asynchronously to transaction execution and thoroughly parallelized. Inherently there's a limit to parallelism because EMPT is not thread safe. Therefore, we parallelize writes to individual account storage tries, as well as the top-level account TRIE. The whole state transition process blocks on EMPT only when the state root is required, which is late enough for almost all pending EMPT writes to finish. In practice, observed waiting time is pessimistically \~2% of total state transition time.
+Within EBLA, the sole purpose of maintaining an EMPT is for deriving state roots, and therefore we need only write to it. Therefore not only is transaction execution parallelized and asynchronous to consensus, but MPT writes are done asynchronously to transaction execution and thoroughly parallelized. Inherently there's a limit to parallelism because EMPT is not thread safe. Therefore, we parallelize writes to individual account storage tries, as well as the top-level account TRIE. The whole state transition process blocks on EMPT only when the state root is required, which is late enough for almost all pending EMPT writes to finish. In practice, observed waiting time is pessimistically \~2% of total state transition time.
 
 In practice execution of 20,000 transactions in large "blocks of blocks" enables virtual machine execution to take over 90% of CPU time, TRIE commits to be around 7%, and DB commits to be around 3% of CPU time. This architecture allows for transaction throughput greater than 25,000 TPS, and for large blocks to be continuous executed without disrupting consensus or endangering security.
 
-![Comparison of Taraxa's Optimized Asynchronous Execution Layer to Ethereum](<../.gitbook/assets/image (1) (1) (1).png>)
+![Comparison of EBLA's Optimized Asynchronous Execution Layer to Ethereum](<../.gitbook/assets/image (1) (1) (1).png>)
 
 ## 5. Technical Roadmap
 
-The rapid advancements planned for the Taraxa protocol include, but are not limited to...
+The rapid advancements planned for the EBLA protocol include, but are not limited to...
 
 * Implement finalized economic model of fees and block rewards into protocol
 * Easy re-keying of accounts
 * Cross-chain security against long-range attacks
 * Architecture for light-nodes and "Immediate" bootstrapping technology
 
-These efforts are driven by the goal to make Taraxa a foundational technology for fast, fair, and faultless execution of anchoring transactions and smart contract operations to be adopted by a highly decentralized world .
+These efforts are driven by the goal to make EBLA a foundational technology for fast, fair, and faultless execution of anchoring transactions and smart contract operations to be adopted by a highly decentralized world .

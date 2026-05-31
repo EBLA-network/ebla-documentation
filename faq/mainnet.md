@@ -1,12 +1,12 @@
 ---
-description: Everything you want to know about Taraxa's Mainnet!
+description: Everything you want to know about EBLA's Mainnet!
 ---
 
 # 🌱 Mainnet
 
 ## Is the Mainnet live?  <a href="#f7c9" id="f7c9"></a>
 
-Yes, you can see it on the [mainnet explorer](https://explorer.mainnet.taraxa.io/) right now.&#x20;
+Yes, you can see it on the [mainnet explorer](https://explorer.mainnet.eblanetwork.com/) right now.&#x20;
 
 ## &#x20;<a href="#c0e0" id="c0e0"></a>
 
@@ -14,9 +14,9 @@ Yes, you can see it on the [mainnet explorer](https://explorer.mainnet.taraxa.io
 
 **Delegation is required**
 
-In addition to staking into the contract, staked tokens must now be delegated to an active node on the Taraxa Mainnet network to earn yields, otherwise it earns nothing. This is a key economic mechanism in classic DPOS consensus to counter Sybil attacks.
+In addition to staking into the contract, staked tokens must now be delegated to an active node on the EBLA Mainnet network to earn yields, otherwise it earns nothing. This is a key economic mechanism in classic DPOS consensus to counter Sybil attacks.
 
-After a Staker stakes TARA, they will need to select a node from a list of available nodes and delegate that stake into the node. Once a node has received the minimum necessary delegation, it will begin participating in consensus and earning yields.
+After a Staker stakes EBLA, they will need to select a node from a list of available nodes and delegate that stake into the node. Once a node has received the minimum necessary delegation, it will begin participating in consensus and earning yields.
 
 
 
@@ -68,17 +68,17 @@ The Testnet and the Mainnet are two different networks, with two different code 
 
 ## Are Node Operators required to self-delegate? <a href="#2fe0" id="2fe0"></a>
 
-There is a 1000 TARA self-delegation requirement for node operators. This self-delegation requirement is not meant to be a financial burden, but purely to guard against spamming.&#x20;
+There is a 1000 EBLA self-delegation requirement for node operators. This self-delegation requirement is not meant to be a financial burden, but purely to guard against spamming.&#x20;
 
 ## How many nodes will there be in the Mainnet? <a href="#7a2a" id="7a2a"></a>
 
-You can find a real time accounting of the network on [Taraxa's website](https://taraxa.io/node/).&#x20;
+You can find a real time accounting of the network on [EBLA's website](https://eblanetwork.com/node/).&#x20;
 
 Since consensus nodes are driven by delegated stake, the number of nodes will depend on how many tokens are staked in the network.
 
 ## Do I need to unstake to claim my staking yields?  <a href="#b168" id="b168"></a>
 
-You do NOT need to unstake in order to claim your rewards. Just claim your rewards on the community site's [redeem section](https://community.taraxa.io/redeem).&#x20;
+You do NOT need to unstake in order to claim your rewards. Just claim your rewards on the community site's [redeem section](https://community.eblanetwork.com/redeem).&#x20;
 
 ## Will there still be a testnet? <a href="#b168" id="b168"></a>
 

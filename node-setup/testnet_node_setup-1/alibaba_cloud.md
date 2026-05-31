@@ -1,5 +1,5 @@
 ---
-description: Guide for running the Taraxa Node with Docker on Alibaba Cloud
+description: Guide for running the EBLA Node with Docker on Alibaba Cloud
 ---
 
 # Alibaba Cloud
@@ -18,7 +18,7 @@ You can create AccessKeyId and AccessKeySecret on this page:
 
 Make a note of that key. It only shows once, you have to save it, and we will use it in the next step.
 
-## 3. Creating a Taraxa Node
+## 3. Creating a EBLA Node
 
 {% hint style="danger" %}
 If you are running this on Windows you will first need to install Windows Subsystem for Linux. You can use [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
@@ -34,12 +34,12 @@ export ALY_AK_SECRET=your_access_key_secret
 Then you can download and run the node creation script using this command:
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Taraxa-project/taraxa-ops/master/scripts/one-click-Alibaba-Cloud.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/scripts/one-click-Alibaba-Cloud.sh)"
 ```
 
 Now you should see a new droplet in your Aliyun account and you should receive an email with the resources creating details.
 
-_NOTE: It takes a few minutes after the droplet starts to install the Taraxa Node software, please don't restart or stop the new ECS instance._
+_NOTE: It takes a few minutes after the droplet starts to install the EBLA Node software, please don't restart or stop the new ECS instance._
 
 ## 4. Check the logs
 
@@ -54,5 +54,5 @@ You can use the following commands to check if the node is up and running:
 ```bash
 sudo docker ps
 
-sudo docker logs taraxa_compose_node_1
+sudo docker logs ebla_compose_node_1
 ```
