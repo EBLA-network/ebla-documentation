@@ -34,7 +34,7 @@ Here we note that you could remove the need for the initial clustering by simply
 
 At any given moment, a node can independently calculate which of the tips on the DAG it observes is the heaviest tip according to a modified version of the GHOST rule. In the original GHOST rule, all pointers are of equal weight. In EBLA, the weight calculations only involve GHOST pointers – those that the proposing nodes calculated to be the heaviest. The remaining regular pointers are involved in total ordering. This mechanism guarantees an exponential falloff of reordering risk within the block DAG over time, and that different nodes’ view of which blocks are considered the heaviest blocks rapidly converge over time.
 
-Ebla’s use of Periods help to bound the complexity of the weights calculations, as the traversal stops upon hitting blocks that are members of a previously finalized Period.
+EBLA’s use of Periods help to bound the complexity of the weights calculations, as the traversal stops upon hitting blocks that are members of a previously finalized Period.
 
 From any block on the block DAG by following the heaviest blocks forward (towards the newest blocks), we can construct an Anchor Chain inside the DAG, much like the Main Chain proposed by OByte.
 
@@ -222,7 +222,7 @@ In contrast to Ethereum, EBLA avoids the expensive read from an Ethereum-modifie
 
 Within EBLA, the sole purpose of maintaining an EMPT is for deriving state roots, and therefore we need only write to it. Therefore not only is transaction execution parallelized and asynchronous to consensus, but MPT writes are done asynchronously to transaction execution and thoroughly parallelized. Inherently there's a limit to parallelism because EMPT is not thread safe. Therefore, we parallelize writes to individual account storage tries, as well as the top-level account TRIE. The whole state transition process blocks on EMPT only when the state root is required, which is late enough for almost all pending EMPT writes to finish. In practice, observed waiting time is pessimistically \~2% of total state transition time.
 
-In practice execution of 20,000 transactions in large "blocks of blocks" enables virtual machine execution to take over 90% of CPU time, TRIE commits to be around 7%, and DB commits to be around 3% of CPU time. This architecture allows for transaction throughput greater than 25,000 TPS, and for large blocks to be continuous executed without disrupting consensus or endangering security.
+In practice execution of 20,000 transactions in large "blocks of blocks" enables virtual machine execution to take over 90% of CPU time, TRIE commits to be around 7%, and DB commits to be around 3% of CPU time. Throughput is ultimately bounded by EBLA's block gas limits. A simple native $EBLA transfer costs 21,000 gas (the standard EVM intrinsic cost, no calldata), so with a PBFT gas limit of 630,000,000 each PBFT block — produced roughly every 3.7 seconds — settles up to 30,000 transfers (and up to 3,000 per individual 63,000,000-gas DAG block). That works out to roughly 8,100 TPS for plain transfers (30,000 ÷ 3.7s), with large blocks executed continuously without disrupting consensus or endangering security.
 
 ![Comparison of EBLA's Optimized Asynchronous Execution Layer to Ethereum](<../.gitbook/assets/image (1) (1) (1).png>)
 
