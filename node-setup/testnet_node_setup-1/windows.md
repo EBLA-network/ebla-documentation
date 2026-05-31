@@ -150,7 +150,7 @@ After it finishes pulling the latest version the node will start and you should 
 
 ## 6. Update the Taraxa Node
 
-From time to time we will announce software updates and breaking protocol changes to the testnet via the #node-operations channel in our [Taraxa community Discord](https://discord.com/invite/WaXnwUb), Telegram channel and Twitter account.
+From time to time we will announce software updates and breaking protocol changes to the testnet via the #node-operations channel in our [Taraxa community Discord](https://discord.com/invite/gCkYC9h8S6), Telegram channel and Twitter account.
 
 {% content-ref url="../upgrade-a-node/" %}
 [upgrade-a-node](../upgrade-a-node/)

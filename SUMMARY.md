@@ -13,14 +13,8 @@
   * [📣 Solicit delegation](become-a-validator/solicit-delegation.md)
   * [🛠️ Node upgrade & reset](become-a-validator/node-upgrade-and-reset.md)
 * [💰 Staking](staking/README.md)
-  * [💧 Liquid Staking](staking/liquid-staking.md)
   * [🚩 Staking via community site](staking/staking-via-community-site.md)
   * [⛓️ Staking directly on-chain](staking/staking-directly-on-chain.md)
-* [🌉 Ficus Root Bridge](ficus-root-bridge/README.md)
-  * [↔️ Bridge usage guide](ficus-root-bridge/bridge-usage-guide.md)
-  * [📜 On-chain contracts](ficus-root-bridge/on-chain-contracts.md)
-  * [🔎 Audit Report](ficus-root-bridge/audit-report.md)
-* [💥 Taraxa Grant Program](taraxa-grant-program.md)
 
 ## Develop on Taraxa <a href="#develop" id="develop"></a>
 
@@ -45,6 +39,7 @@
   * [Azure](node-setup/testnet_node_setup/azure.md)
   * [Hetzner](node-setup/testnet_node_setup/hetzner.md)
   * [GitHub is blocked](node-setup/testnet_node_setup/github_blocked.md)
+  * [Google Cloud](node-setup/testnet_node_setup/google_cloud.md)
 * [🪶 Lite Consensus Node (beta)](node-setup/lite-consensus-node-beta.md)
 * [⏺️ Upgrade a Node](node-setup/upgrade-a-node/README.md)
   * [⬆️ Upgrade Node](node-setup/upgrade-a-node/software-upgrade.md)
@@ -85,20 +80,6 @@
 * [Governance](tech-whitepaper/governance.md)
 * [Further Reading](tech-whitepaper/further-reading.md)
 
-## NATIVE TOKEN CONVERSION
-
-* [💡 Introduction](native-token-conversion/introduction.md)
-* [🗓️ Conversion Status](native-token-conversion/conversion-status.md)
-* [❓ Conversion FAQ](native-token-conversion/conversion-faq.md)
-* [⚗️ Mock Conversion](native-token-conversion/mock-conversion.md)
-* [📋 Exchange Submission](native-token-conversion/exchange-submission.md)
-
-## Social Listening
-
-* [📶 Echo Network](social-listening/echo-network.md)
-* [📣 Hype App](social-listening/hype-app.md)
-
 ## Governance
 
 * [ℹ️ Introduction](governance/introduction.md)
-* [⚡ Voting Guide](governance/voting-guide.md)

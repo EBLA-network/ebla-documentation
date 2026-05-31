@@ -8,7 +8,7 @@ description: Guide for running the Taraxa Node with Docker on Alibaba Cloud
 
 You can use the following link to get a discount:
 
-[https://www.alibabacloud.com/referral?referralCode=iwa2ly](https://www.alibabacloud.com/referral?referralCode=iwa2ly)
+[https://www.alibabacloud.com/](https://www.alibabacloud.com/)
 
 ## 2. Create AccessKeyId and AccessKeySecret
 

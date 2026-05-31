@@ -8,7 +8,7 @@ description: Guide for running the Taraxa Node with Docker on Linode
 
 You can use the following link to get $100 to test out their platform:
 
-[https://www.linode.com?r=](https://www.linode.com/?r=)
+[https://www.linode.com/](https://www.linode.com/)
 
 ## 2. Create a API Token for Taraxa
 

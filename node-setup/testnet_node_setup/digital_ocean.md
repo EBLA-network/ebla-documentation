@@ -8,7 +8,7 @@ description: Guide for running the Taraxa Node with Docker on Digital Ocean
 
 You can use the following link to get $100 in credits:
 
-[https://m.do.co/c/4143d5ec5500](https://m.do.co/c/4143d5ec5500)
+[https://m.do.co/c/256af352c56c](https://m.do.co/c/256af352c56c)
 
 ## 2. Create a Personal access token
 
