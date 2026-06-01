@@ -7,7 +7,7 @@ Instructions relating to running a validator node on the Mainnet are mostly iden
 ```bash
 mkdir -p mainnet/config
 cd mainnet
-wget https://raw.githubusercontent.com/EBLA-network/ebla-ops/master/ebla_compose_mainnet/docker-compose.yml
+wget https://raw.githubusercontent.com/EBLA-network/ebla-ops/ebla-stable/ebla_compose_mainnet/docker-compose.yml
 docker-compose up -d
 docker-compose logs
 ```
