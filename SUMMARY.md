@@ -24,7 +24,6 @@
   * [Remix](develop/smart-contracts/remix.md)
 * [⚒️ Common frameworks & Examples](develop/common-frameworks-and-examples.md)
 * [🎱 Oracles](develop/oracles.md)
-* [💧 Testnet faucet](develop/testnet-faucet.md)
 * [🔩 EBLA RPC Specs](develop/ebla-rpc-specs.md)
 
 ## Node Operations <a href="#node-setup" id="node-setup"></a>

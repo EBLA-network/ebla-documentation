@@ -23,7 +23,7 @@ There are a few minor exceptions and quirks to EBLA's ETH-compatibility, you can
 
 You may use the RPC endpoints provided by EBLA's core development team. Right now these are being provided as is and free of charge, this may change later of course with plenty of notice given to the community.&#x20;
 
-* Mainnet: [https://rpc.mainnet.eblanetwork.com](https://rpc.mainnet.eblanetwork.com)
+* Mainnet: [https://rpc.eblanetwork.com](https://rpc.eblanetwork.com)
 * Testnet: [https://rpc.testnet.eblanetwork.com/](https://rpc.testnet.eblanetwork.com/)&#x20;
 
 More details on [EBLA's network connections](../wallet/eblas-network-connection-details.md), including chain-ids etc.&#x20;

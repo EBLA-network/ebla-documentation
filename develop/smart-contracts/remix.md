@@ -36,7 +36,7 @@ Here's a step-by-step example to deploy a simple contract onto EBLA's mainnet vi
 
 <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
-* We can also confirm this in the [explorer](https://explorer.mainnet.eblanetwork.com/), we can look up the transaction ID in the explorer and make sure the deployed contract address is the same. (certain details redacted)&#x20;
+* We can also confirm this in the [explorer](https://explorer.eblanetwork.com/), we can look up the transaction ID in the explorer and make sure the deployed contract address is the same. (certain details redacted)&#x20;
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
