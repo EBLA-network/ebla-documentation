@@ -24,7 +24,7 @@ To connect to the EBLA chain you can use either a **Consensus Node** or a **RPC 
 
 #### Setting up your own node
 
-The simplest way to set up a EBLA Node inside your own infrastructure is to use the official [Docker Images](https://hub.docker.com/r/ebla/ebla-node/tags?page=1\&name=1.0) we provide for the mainnet version. Docker will also make sure that the node gets restarted if it crashes.
+The simplest way to set up a EBLA Node inside your own infrastructure is to use the official Docker image we provide, `ghcr.io/ebla-network/ebla-node`. Docker will also make sure that the node gets restarted if it crashes.
 
 We highly recommend setting up more than one instance of the EBLA Node for reliability.
 

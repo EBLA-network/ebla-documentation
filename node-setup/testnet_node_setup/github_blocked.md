@@ -65,7 +65,7 @@ cd ebla
 Now to configure and start the node we can run the following commands:
 
 ```text
-docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ebla/ebla-node:latest eblad --network-id 2 --wallet /opt/ebla_data/conf/wallet.json --config /opt/ebla_data/conf/testnet.json --data-dir /opt/ebla_data/data --overwrite-config
+docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ghcr.io/ebla-network/ebla-node:ebla-stable eblad --network-id 2 --wallet /opt/ebla_data/conf/wallet.json --config /opt/ebla_data/conf/testnet.json --data-dir /opt/ebla_data/data --overwrite-config
 
 docker logs -f ebla_compose_node_1
 ```
@@ -99,7 +99,7 @@ deltree /Y data
 Continued:
 
 ```text
-docker pull ebla/ebla-node:latest
-docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ebla/ebla-node:latest eblad --conf_ebla /opt/ebla_data/conf/testnet.json
+docker pull ghcr.io/ebla-network/ebla-node:ebla-stable
+docker run -d --name ebla_compose_node_1 -it -p 10002:10002 -p 10002:10002/udp -p 7777:7777 -p 8777:8777 -v $(pwd):/opt/ebla_data ghcr.io/ebla-network/ebla-node:ebla-stable eblad --conf_ebla /opt/ebla_data/conf/testnet.json
 ```
 
