@@ -63,6 +63,11 @@
   * [Hetzner](node-setup/testnet_node_setup-1/hetzner.md)
   * [GitHub is blocked](node-setup/testnet_node_setup-1/github_blocked.md)
 
+## How-To <a href="#how-to" id="how-to"></a>
+
+* [🧭 How-To Guides](how-to/README.md)
+* [🕵️ Check validator slashing status](how-to/check-validator-slashing.md)
+
 ## FAQ
 
 * [1️ 1️ Layer-1 Tech](faq/layer-1-tech.md)

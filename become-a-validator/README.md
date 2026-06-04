@@ -15,6 +15,7 @@ To become a validator, you need to do and be aware of the following,&#x20;
 * [Register your validator node by directly interacting with the on-chain DPoS contract](register-node-directly-on-chain.md)
 * [Solicit delegation](solicit-delegation.md)
 * [Node upgrade & reset operations](node-upgrade-and-reset.md)
+* [Monitor your node for inactivity slashing](../how-to/check-validator-slashing.md)
 
 
 
@@ -41,4 +42,10 @@ Validators charge a commission, which is a percentage of the total staking yield
 ### Where can I see a list of current Validators?&#x20;
 
 You can see a list of current Validators, their delegation, yields efficiency and commissions on the [EBLA staking site's Staking section](https://staking.eblanetwork.com/staking).&#x20;
+
+
+
+### How do I know if my node is being slashed for inactivity?&#x20;
+
+If your validator stops producing blocks for ~10,000 blocks (~10 hours) it loses 5% of its voting power per window, and is force-undelegated if its effective stake falls below 5,000 EBLA. You can check your node's live status, spot any slashing, and project an eviction time with the [Check validator slashing status](../how-to/check-validator-slashing.md) guide.&#x20;
 
