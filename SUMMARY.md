@@ -66,7 +66,9 @@
 ## How-To <a href="#how-to" id="how-to"></a>
 
 * [🧭 How-To Guides](how-to/README.md)
+* [📡 Monitor node health & sync](how-to/monitor-node-health-and-sync.md)
 * [🕵️ Check validator slashing status](how-to/check-validator-slashing.md)
+* [🌐 Run a public RPC node behind HTTPS](how-to/run-a-public-rpc-node-behind-https.md)
 
 ## FAQ
 

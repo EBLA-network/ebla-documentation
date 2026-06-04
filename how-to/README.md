@@ -5,12 +5,15 @@ description: Practical, copy-paste guides for people running an EBLA node.
 # 🧭 How-To Guides
 
 Short, task-focused guides for EBLA node operators. Each one is self-contained:
-prerequisites, the exact commands to run, and how to read the output. The tools are
-**read-only** — they query the chain and your node, and never send transactions.
+prerequisites, the exact commands to run, and how to read the output. The diagnostic
+tools are **read-only** — they query the chain and your node without sending
+transactions; setup guides note when they change your configuration.
 
 ### Available guides
 
+* [📡 Monitor node health & sync](monitor-node-health-and-sync.md) — confirm a node is synced, peered, and participating in consensus, with a one-command health probe for cron.
 * [🕵️ Check validator slashing status](check-validator-slashing.md) — detect validators that have stopped producing blocks, see how much voting power they've lost, and project when an inactive validator will be evicted from the active set.
+* [🌐 Run a public RPC node behind HTTPS](run-a-public-rpc-node-behind-https.md) — serve your own HTTPS JSON-RPC endpoint for a dApp or community, with a Caddy reverse proxy handling TLS and CORS.
 
 A taste of the output — `ebla-slash-check` scanning the live validator set in one command:
 
