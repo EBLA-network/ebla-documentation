@@ -17,13 +17,13 @@ EBLA is a community-driven chain, built and maintained by its community on top o
 
 These innovations give EBLA unsurpassed throughput at scale without security or decentralization tradeoffs, paving the way for the next infrastructural upgrade from blockchain to blockDAG.&#x20;
 
-EBLA’s vibrant community has been building DeFi and social analytics dApps organically during the bear market as the development team continues to focus on driving awareness, adoption, building demonstrative dApps, and rounding out necessary infrastructure tech.&#x20;
+EBLA’s community is engaged and decentralized — with a hardened, security-first codebase and a sustainable token economy, EBLA is carried forward as a truly community-owned chain focused on adoption, real-world utility, and the infrastructure builders need.&#x20;
 
 ##
 
 ## Solving real-world problems
 
-It is our firm belief that technologies are meant to solve real world problems, and cannot be developed in isolation. The applications we build, will build, and will enable our community to build, will (and do) have concrete functionality implications to how the public ledger infrastructural layer is designed and implemented. To this end, the application and the ledger need to be tightly coupled to create the most optimized outcomes.
+It is our firm belief that technology is meant to solve real-world problems, and that a public ledger is strongest when it is owned and governed by the people who use it. EBLA is built around that principle: a high-performance, EVM-compatible Layer-1 that its community can build on, stake on, and help steer toward real-world value.
 
 This is why we created EBLA.&#x20;
 

@@ -15,7 +15,7 @@ Go to [Remix](https://remix.ethereum.org/), and upload EBLA's DPoS contract's So
 In the pop-up, paste in the following link to the EBLA DPoS contract Solidity interface,&#x20;
 
 ```
-https://raw.githubusercontent.com/EBLA-network/ebla-evm/master/ebla/state/contracts/dpos/solidity/dpos_contract_interface.sol
+https://raw.githubusercontent.com/EBLA-network/ebla-evm/ebla-stable/ebla/state/contracts/dpos/solidity/dpos_contract_interface.sol
 ```
 
 After it's been uploaded you should be able to see it in the IDE on the right side,&#x20;
@@ -40,7 +40,7 @@ Click the Compile button. Once it has been compiled you should see a green check
 
 ### 3.  Set up the interface&#x20;
 
-After compilation, make sure you log into Metamask and switch the network to Tarxa Mainnet. If you aren't sure how to do that, please check out the [wallet guide on adding EBLA networks into Metamask](../become-a-validator/register-node-directly-on-chain.md).&#x20;
+After compilation, make sure you log into Metamask and switch the network to EBLA. If you aren't sure how to do that, please check out the [wallet guide on adding EBLA networks into Metamask](../become-a-validator/register-node-directly-on-chain.md).&#x20;
 
 _**Remember:** whatever wallet you use to register the validator node, this wallet is the_ [_owner of that node_](staking-directly-on-chain.md#0.-important-wallet-used-to-register-a-node-is-the-owner-of-that-node)_._&#x20;
 
@@ -84,8 +84,8 @@ We click on the "call" button to send the query to the DPoS contract, and we get
 
 * First, the returned value at the bottom is not an error! Which means the validator has been registered.&#x20;
 * If the returned value is an error, :octagonal\_sign: DO NOT :octagonal\_sign: delegate to this address. This node either does not exist at all, or it has not been registered.&#x20;
-* Part of the returned value is an 256-bit unsigned integer that indicates the current delegation (see underlined number in the screenshot above). Note that, all values on the blockchain are stored as unsigned 256-bit integers, so there are no decimals, that's why the numbers look so big because they need to also represent 10^18 decimal places as part of the integer value. Just take this number and remove 18 zeros from the end, and you'll see that, in this example, this validator node has 1000 EBLA delegated to it. Since 1000 EBLA is a required self-delegation from the node owner, that means this node has not received any delegation since registration.&#x20;
-* Since the minimum delegation required to participate in consensus is 500,000 EBLA, that means in this example, this node is not yet eligible to participate in consensus. If the validator node has passed the minimum threshold, then you can also check it on the explorer to see its past block production history.&#x20;
+* Part of the returned value is an 256-bit unsigned integer that indicates the current delegation (see underlined number in the screenshot above). Note that, all values on the blockchain are stored as unsigned 256-bit integers, so there are no decimals, that's why the numbers look so big because they need to also represent 10^18 decimal places as part of the integer value. Just take this number and remove 18 zeros from the end, and you'll see that, in this example, this validator node has 1000 EBLA delegated to it. This is the amount the node owner self-delegated at registration (the minimum required is 100 EBLA), so the node has not received any delegation from others since registration.&#x20;
+* Since the minimum delegation required to participate in consensus is 5,000 EBLA, that means in this example, this node is not yet eligible to participate in consensus. If the validator node has passed the minimum threshold, then you can also check it on the explorer to see its past block production history.&#x20;
 
 ### 5.  Delegating to the validator&#x20;
 
@@ -95,7 +95,7 @@ First, we enter the number of EBLA to be delegated into the node. Within the "De
 
 Set the following,&#x20;
 
-* Value to whatever you wish to delegate, in this example we're going to use 1000 since it's the minimum delegation amount.&#x20;
+* Value to whatever you wish to delegate; in this example we're going to use 1000 EBLA (the minimum delegation is 100 EBLA).&#x20;
 * Unit to "Ether", this may be confusing but since Remix isn't aware of the EBLA Network's token name, it calls all tokens for EVM-compatible networks "Ether", don't worry, it's sending EBLA (since you're on the EBLA Network)
 
 Next, we enter the validator node's public address into the `delegate` function below. &#x20;
@@ -144,14 +144,14 @@ You should always verify the results by using the `getValidator` function as usu
 
 ### 8.  Un-delegating your stake
 
-You can also remove your delegation and return the staked EBLA back into your wallet by using the     `unDelegate` function. Note that, after calling the unDelegate function, it'll take 700,540 blocks (\~30 days) for the delegated tokens to unlock.&#x20;
+You can also remove your delegation and return the staked EBLA back into your wallet by using the     `unDelegate` function. Note that, after calling the unDelegate function, it'll take 200,000 blocks (\~8.5 days) for the delegated tokens to unlock.&#x20;
 
 After the time has elapsed and tokens unlocked, you can claim the tokens via the `confirmUndelegate` function, which requires that you enter the same validator node's public address again.&#x20;
 
 A few things to note,&#x20;
 
 * Un-delegate initiates a removal of a defined amount of delegated tokens from the validator node
-* Once you initiate un-delegation, there's a delay of 700,540 blocks (\~30 days) delay before you can claim your tokens
+* Once you initiate un-delegation, there's a delay of 200,000 blocks (\~8.5 days) before you can claim your tokens
 * If you simply wish to shift delegation from an under-performing node to one that performs better, you should consider using re-delegation which only has a few PBFT block delay (a few seconds)
 * You can un-delegate, using the same wallet, from multiple validators simultaneously&#x20;
 * You can NOT un-delegate, using the same wallet, from the same validator multiple times - you'd have to either cancel the un-delegation (at the top of the community staking page), or wait till the current un-stake delay has fully elapsed and execute a new un-stake

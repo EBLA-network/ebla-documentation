@@ -55,7 +55,7 @@ The development team has not yet done detailed network stress tests to see just 
 
 ## Testnet: why are there a few nodes producing far more blocks than the other nodes on the testnet?&#x20;
 
-If you go to the [EBLA explorer's node page](https://explorer.testnet.eblanetwork.com/nodes) starting in 2022, you'll see a few nodes (6 as of this writing) that are producing far more blocks than the other nodes. Why is that?&#x20;
+If you go to the [EBLA explorer's node page](https://explorer.testnet.eblanetwork.com/nodes), you'll see a few nodes (6 as of this writing) that are producing far more blocks than the other nodes. Why is that?&#x20;
 
 Those nodes are nodes maintained by the developer team. The reasons why the dev-operated nodes (which are _**excluded**_ from rewards, as they should be) are producing way more blocks is because they hold more delegation.&#x20;
 
@@ -69,7 +69,7 @@ Because the need to deploy new features to test out, and we want to do it quickl
 
 
 
-a change was made to the way PBFT blocks are proposed. Previously they didn't take into account delegation, now they do - this was made in this PR: [https://github.com/EBLA-network/ebla-node/pull/1382](https://github.com/EBLA-network/ebla-node/pull/1382). So this is why previously although the dev-operated nodes had more delegation, they weren't producing more PBFT blocks than your average community node. This change was made to make sure the testnet's code mirrors that of the mainnet's, as it should. Another question, why are the dev nodes producing SO many more blocks?&#x20;
+PBFT block proposals take a node's delegation into account, so the dev-operated nodes — which hold the majority of the delegation — produce proportionally more blocks. This keeps the testnet's behavior aligned with the mainnet's.&#x20;
 
 
 
@@ -248,8 +248,8 @@ A node is considered active only if it has been [fully synced](testnet.md#undefi
 
 A block-producing node should also show up on the explorer's node list.&#x20;
 
-* [Mainnet node list](https://mainnet.explorer.eblanetwork.com/node)&#x20;
-* [Testnet node list](https://testnet.explorer.eblanetwork.com/node)&#x20;
+* [Mainnet node list](https://explorer.eblanetwork.com/node)&#x20;
+* [Testnet node list](https://explorer.testnet.eblanetwork.com/node)&#x20;
 
 ##
 

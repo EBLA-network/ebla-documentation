@@ -99,7 +99,7 @@ sudo docker-compose logs -f
 
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://github.com/EBLA-network/ebla-documentation/tree/f4ee57d43b23f5ad4a2212fa5ec90254d9181f92/node-setup/testnet\_node\_setup/node-setup/github\_blocked.md) document.
+GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](../testnet_node_setup/github_blocked.md) document.
 {% endhint %}
 
 {% hint style="info" %}

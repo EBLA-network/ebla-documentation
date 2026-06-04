@@ -22,7 +22,7 @@ docker-compose down -v
 docker-compose pull
 del config\mainnet.json
 docker-compose up -d
-docker-compose logs -f// Some code
+docker-compose logs -f
 ```
 
 

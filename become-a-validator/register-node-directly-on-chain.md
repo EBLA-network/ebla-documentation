@@ -53,18 +53,18 @@ Click the Compile button. Once it has been compiled you should see a green check
 
 ### 3.  Set up the interface&#x20;
 
-After compilation, make sure you log into Metamask and switch the network to Tarxa Mainnet. If you aren't sure how to do that, please check out the [wallet guide on adding EBLA networks into Metamask](register-node-directly-on-chain.md).&#x20;
+After compilation, make sure you log into Metamask and switch the network to EBLA. If you aren't sure how to do that, please check out the [wallet guide on adding EBLA networks into Metamask](register-node-directly-on-chain.md).&#x20;
 
 _**Remember:** whatever wallet you use to register the validator node, this wallet is the_ [_owner of that node_](register-node-directly-on-chain.md#0.-important-wallet-used-to-register-a-node-is-the-owner-of-that-node)_._&#x20;
 
-Once you've switched your Metamask to the EBLA Mainnet, go to the "Deploy & Run Transactions" section in Remix.&#x20;
+Once you've switched your Metamask to EBLA, go to the "Deploy & Run Transactions" section in Remix.&#x20;
 
 <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 At the top, change "Environment" to "Injected Provider - Metamask". Once you've done that, make sure to double-check that&#x20;
 
 * The network ID is indeed [EBLA's network ID](../wallet/eblas-network-connection-details.md) in the "Custom network" tag  under the Environment dropdown, and&#x20;
-* The wallet under "Account" is the wallet you want to use, since setting up a validator node will require gas fees but also a 1000-EBLA minimum self-delegation, so make sure the wallet connected has sufficient funds
+* The wallet under "Account" is the wallet you want to use, since setting up a validator node will require gas fees but also a 100-EBLA minimum self-delegation, so make sure the wallet connected has sufficient funds
 * The right compiled interface from the previous step is loaded. Look at the "Contract (Compiled by Remix)" section and make sure the filename is the same as the one in the file explorer.&#x20;
 
 <figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>

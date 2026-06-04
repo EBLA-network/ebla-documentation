@@ -29,7 +29,7 @@ wget https://github.com/EBLA-network/ebla-ops/archive/refs/heads/master.zip && u
 ```
 
 {% hint style="danger" %}
-GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](https://docs.eblanetwork.com/node-setup/testnet\_node\_setup/github\_blocked) document.
+GitHub is blocked in some countries. If you can't run the previous command please refer to the [GitHub is blocked](github_blocked.md) document.
 {% endhint %}
 
 ![Download Scripts](../../.gitbook/assets/2-scripts.png)

@@ -32,13 +32,13 @@ Connect your wallet (upper-right corner). You may use any web3-enabled wallet th
 
 Once your wallet is connected, navigate to the [community site's staking page](https://community.eblanetwork.com/staking) and select one ore more validators to delegate to.&#x20;
 
-On this page you'll see a list of validators that have listed their nodes up for delegation. The "Avalailable for Delegation" shows you how much more delegation this specific node is able to take in. Each node can take on a total of 80 million EBLA in delegation, beyond that no more delegation is possible for the specific node.&#x20;
+On this page you'll see a list of validators that have listed their nodes up for delegation. The "Avalailable for Delegation" shows you how much more delegation this specific node is able to take in. Each node can take on a total of 1,000,000 EBLA in delegation, beyond that no more delegation is possible for the specific node.&#x20;
 
 _NOTE: the dev team is working to gather and display past uptime statistics (work in progress) so that you may make an informed choice on which validator to delegate your tokens to. Uptime is critical as it impacts the effective yield rate - i.e., if a node is not turned on, it does not earn any yields._&#x20;
 
 <figure><img src="../.gitbook/assets/4. delegate to a node.png" alt=""><figcaption></figcaption></figure>
 
-Minimum delegation per validator node is 1000 EBLA.&#x20;
+Minimum delegation per validator node is 100 EBLA.&#x20;
 
 <figure><img src="../.gitbook/assets/5. delegation screen.png" alt=""><figcaption></figcaption></figure>
 
@@ -87,7 +87,7 @@ You may choose to un-delegate your tokens from a validator node at any time, sim
 Here are a few things to remember when un-delegating,&#x20;
 
 * Un-delegate initiates a removal of a defined amount of delegated tokens from the validator node
-* Once you initiate un-delegation, there's a delay of 700,540 blocks (\~30 days) delay before you can claim your tokens
+* Once you initiate un-delegation, there's a delay of 200,000 blocks (\~8.5 days) before you can claim your tokens
 * If you simply wish to shift delegation from an under-performing node to one that performs better, you should consider using re-delegation which only has a few PBFT block delay (a few seconds)
 * You can un-delegate, using the same wallet, from multiple validators simultaneously&#x20;
 * You can NOT un-delegate, using the same wallet, from the same validator multiple times - you'd have to either cancel the un-delegation (at the top of the community staking page), or wait till the current un-stake delay has fully elapsed and execute a new un-stake

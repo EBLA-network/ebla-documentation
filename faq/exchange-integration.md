@@ -32,7 +32,7 @@ We highly recommend setting up more than one instance of the EBLA Node for relia
 
 For testing purposes or a small number of requests you can also use our RPC endpoint:
 
-[https://rpc.mainnet.eblanetwork.com](https://rpc.mainnet.eblanetwork.com)
+[https://rpc.eblanetwork.com](https://rpc.eblanetwork.com)
 
 ### Interacting with the JSON-RPC endpoint
 
@@ -62,7 +62,7 @@ $ eblad --command account
 ```javascript
 const Web3 = require('web3');
 const main = () => {
-    const web3 = new Web3(new Web3.providers.HttpProvider('https://rpc.mainnet.eblanetwork.com'));
+    const web3 = new Web3(new Web3.providers.HttpProvider('https://rpc.eblanetwork.com'));
     let { address, privateKey } = web3.eth.accounts.create(web3.utils.randomHex(32));
     console.log({
         node_address: address,
@@ -107,7 +107,7 @@ const watch = [
 
 const main = async () => {
   const db = new Level('db', { valueEncoding: 'json' });
-  const provider = new ethers.providers.JsonRpcProvider('https://rpc.mainnet.eblanetwork.com');
+  const provider = new ethers.providers.JsonRpcProvider('https://rpc.eblanetwork.com');
 
   provider.on('block', async (newBlockNumber) => {
     console.group(`Scanning new block #${newBlockNumber}...`);
@@ -144,7 +144,7 @@ main();
 ```javascript
 const Web3 = require('web3');
 const main = async () => {
-  const web3 = new Web3(new Web3.providers.HttpProvider('https://rpc.mainnet.eblanetwork.com'));
+  const web3 = new Web3(new Web3.providers.HttpProvider('https://rpc.eblanetwork.com'));
   const account = web3.eth.accounts.create(web3.utils.randomHex(32));
 
   console.log(`Using account: ${account.address}`);
@@ -175,7 +175,7 @@ main();
 ```javascript
 const ethers = require('ethers');
 const main = async () => {
-  const provider = new ethers.providers.JsonRpcProvider('https://rpc.mainnet.eblanetwork.com');
+  const provider = new ethers.providers.JsonRpcProvider('https://rpc.eblanetwork.com');
   const wallet = ethers.Wallet.createRandom().connect(provider);
 
   console.log(`Using account: ${wallet.address}`);

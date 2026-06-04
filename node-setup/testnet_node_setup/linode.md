@@ -4,7 +4,7 @@ description: Guide for running the EBLA Node with Docker on Linode
 
 # Linode
 
-## 1. Register to Scaleway
+## 1. Register to Linode
 
 You can use the following link to get $100 to test out their platform:
 
