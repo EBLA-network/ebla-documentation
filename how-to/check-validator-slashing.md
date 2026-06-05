@@ -169,6 +169,8 @@ for val in validators:
         status = f"SLASHED (~{round(100 * votes / expected)}% of expected votes)"
     elif expected:
         status = "ok"
+    elif stake == 0:
+        status = "EVICTED (stake 0)"
     else:
         status = "below 5,000 EBLA threshold"
     print(f"{account:44}{stake // ONE:>14}{expected:>8}{votes:>8}  {status}")
@@ -201,6 +203,7 @@ How to read it:
 * **`ok`** — full voting power, producing blocks normally.
 * **`SLASHED`** — eligible votes are below the stake-implied amount, so the validator has stopped producing DAG blocks and is decaying. The `%` is a coarse hint; for the **exact** factor and penalty count, run Test 3.
 * **`below 5,000 EBLA threshold`** — staked under the minimum, not consensus-eligible at all.
+* **`EVICTED (stake 0)`** — was force-undelegated after dropping below the threshold; stake is now 0 and it's out of the active set.
 * The exit code is `1` if anything is flagged, `0` if all healthy — convenient for cron/monitoring.
 * Cross-check: the printed `total eligible votes` should match `dpos_total_votes` from Test 1.
 
@@ -266,6 +269,14 @@ ABI = [{"name": "getValidator", "stateMutability": "view", "type": "function",
 c = w3.eth.contract(address=DPOS, abi=ABI)
 stake = c.functions.getValidator(v).call()[0] // 10**18
 head = w3.eth.block_number
+
+# an evicted validator has stake 0 and no meaningful factor — report and stop
+if stake == 0:
+    print(f"validator        {v}")
+    print(f"head block       {head}")
+    print("stake            0 EBLA")
+    print("status           EVICTED — force-undelegated, removed from the active set")
+    sys.exit(0)
 
 # voting-power factor: stored at keccak256(0x09 || address) as (factor + 1);
 # a stored 0 means "never set" => default 100% (SCALE).
@@ -379,3 +390,66 @@ alert from cron:
 | Is *my* node losing power? | Test 1 — `get_node_status` → `dpos_node_votes` |
 | *Which* validators are slashed? | Test 2 — `ebla-slash-check` |
 | *How many* penalties / *when* evicted? | Test 3 — `ebla-validator-eviction` |
+| Slash status of the **whole fleet** in one go | [A to Z](#a-to-z--full-copy-paste-setup-all-nodes-slash-report) — `ebla-slash-all` |
+
+---
+
+## A to Z — full copy-paste setup (all-nodes slash report)
+
+The fastest path on a **fresh node**: no editor, no manual file creation — paste these
+three blocks into the CLI in order. They install and run `ebla-slash-all`, the
+eviction-aware all-fleet report that reads each validator's **exact** voting-power
+factor from storage and labels evicted (stake 0) validators cleanly. The script is
+delivered base64-encoded so it pastes into any terminal without mangling Python
+indentation.
+
+### STEP 1 — one-time setup (Python + web3)
+
+```bash
+apt-get update -qq && apt-get install -y -qq python3 python3-venv python3-pip
+python3 -m venv ~/ebla-venv
+~/ebla-venv/bin/pip install -q --upgrade pip web3
+~/ebla-venv/bin/python3 -c 'import web3; print("web3 OK", web3.__version__)'
+```
+
+Expect a final line like `web3 OK 7.16.0`. Run STEP 1 only once per node.
+
+### STEP 2 — install the all-nodes slash report
+
+```bash
+echo 'IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwojIGVibGEtc2xhc2gtYWxsIOKAlCBleGFjdCBpbmFjdGl2aXR5LXNsYXNoIHN0YXR1cyBmb3IgRVZFUlkgcmVnaXN0ZXJlZCB2YWxpZGF0b3IuCiMgUmVhZC1vbmx5LiBIYW5kbGVzIGV2aWN0ZWQgKHN0YWtlIDApIHZhbGlkYXRvcnMgY2xlYW5seS4KaW1wb3J0IG9zLCBzeXMKZnJvbSB3ZWIzIGltcG9ydCBXZWIzCgpSUEMgPSBvcy5lbnZpcm9uLmdldCgiRUJMQV9SUEMiLCAiaHR0cDovL2xvY2FsaG9zdDo3Nzc3IikKdzMgPSBXZWIzKFdlYjMuSFRUUFByb3ZpZGVyKFJQQykpCkRQT1MgPSBXZWIzLnRvX2NoZWNrc3VtX2FkZHJlc3MoIjB4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDBmZSIpCk9ORSwgU1RFUCwgRUxJRywgU0NBTEUgPSAxMCoqMTgsIDEwMDAsIDUwMDAsIDEwMDAwCkZJRUxEID0gYiJceDA5IiAgIyBEUG9TIHN0b3JhZ2UgZmllbGQgaWQgZm9yIHRoZSB2b3RpbmctcG93ZXIgZmFjdG9yCgpBQkkgPSBbCiB7Im5hbWUiOiAiZ2V0VmFsaWRhdG9ycyIsICJzdGF0ZU11dGFiaWxpdHkiOiAidmlldyIsICJ0eXBlIjogImZ1bmN0aW9uIiwKICAiaW5wdXRzIjogW3sibmFtZSI6ICJiYXRjaCIsICJ0eXBlIjogInVpbnQzMiJ9XSwKICAib3V0cHV0cyI6IFsKICAgIHsibmFtZSI6ICJ2YWxpZGF0b3JzIiwgInR5cGUiOiAidHVwbGVbXSIsICJjb21wb25lbnRzIjogWwogICAgICB7Im5hbWUiOiAiYWNjb3VudCIsICJ0eXBlIjogImFkZHJlc3MifSwKICAgICAgeyJuYW1lIjogImluZm8iLCAidHlwZSI6ICJ0dXBsZSIsICJjb21wb25lbnRzIjogWwogICAgICAgIHsibmFtZSI6ICJ0b3RhbF9zdGFrZSIsICJ0eXBlIjogInVpbnQyNTYifSwKICAgICAgICB7Im5hbWUiOiAiY29tbWlzc2lvbl9yZXdhcmQiLCAidHlwZSI6ICJ1aW50MjU2In0sCiAgICAgICAgeyJuYW1lIjogImNvbW1pc3Npb24iLCAidHlwZSI6ICJ1aW50MTYifSwKICAgICAgICB7Im5hbWUiOiAibGFzdF9jb21taXNzaW9uX2NoYW5nZSIsICJ0eXBlIjogInVpbnQ2NCJ9LAogICAgICAgIHsibmFtZSI6ICJ1bmRlbGVnYXRpb25zX2NvdW50IiwgInR5cGUiOiAidWludDE2In0sCiAgICAgICAgeyJuYW1lIjogIm93bmVyIiwgInR5cGUiOiAiYWRkcmVzcyJ9LAogICAgICAgIHsibmFtZSI6ICJkZXNjcmlwdGlvbiIsICJ0eXBlIjogInN0cmluZyJ9LAogICAgICAgIHsibmFtZSI6ICJlbmRwb2ludCIsICJ0eXBlIjogInN0cmluZyJ9XX1dfSwKICAgIHsibmFtZSI6ICJlbmQiLCAidHlwZSI6ICJib29sIn1dfSwKIHsibmFtZSI6ICJnZXRWYWxpZGF0b3JFbGlnaWJsZVZvdGVzQ291bnQiLCAic3RhdGVNdXRhYmlsaXR5IjogInZpZXciLCAidHlwZSI6ICJmdW5jdGlvbiIsCiAgImlucHV0cyI6IFt7Im5hbWUiOiAidmFsaWRhdG9yIiwgInR5cGUiOiAiYWRkcmVzcyJ9XSwKICAib3V0cHV0cyI6IFt7Im5hbWUiOiAiIiwgInR5cGUiOiAidWludDY0In1dfSwKXQoKZGVmIHBlbmFsdGllc19mb3IoZmFjdG9yKToKICAgICIiIkhvdyBtYW55IC01JSBzdGVwcyBmcm9tIDEwMCUgcmVhY2ggYGZhY3RvcmA7IE5vbmUgaWYgbm90IGEgY2xlYW4gZGVjYXkgdmFsdWUuIiIiCiAgICBpZiBmYWN0b3IgPj0gU0NBTEU6CiAgICAgICAgcmV0dXJuIDAKICAgIGYsIG4gPSBTQ0FMRSwgMAogICAgd2hpbGUgZiA+IGZhY3RvcjoKICAgICAgICBmID0gZiAqIDk1IC8vIDEwMAogICAgICAgIG4gKz0gMQogICAgICAgIGlmIGYgPT0gMDoKICAgICAgICAgICAgcmV0dXJuIE5vbmUKICAgIHJldHVybiBuIGlmIGYgPT0gZmFjdG9yIGVsc2UgTm9uZQoKYyA9IHczLmV0aC5jb250cmFjdChhZGRyZXNzPURQT1MsIGFiaT1BQkkpCmhlYWQgPSB3My5ldGguYmxvY2tfbnVtYmVyCgp2YWxzLCBiYXRjaCA9IFtdLCAwCndoaWxlIFRydWU6CiAgICByID0gYy5mdW5jdGlvbnMuZ2V0VmFsaWRhdG9ycyhiYXRjaCkuY2FsbCgpCiAgICB2YWxzICs9IHJbMF0KICAgIGlmIHJbMV06CiAgICAgICAgYnJlYWsKICAgIGJhdGNoICs9IDEKCnByaW50KGYiRUJMQSBzbGFzaCByZXBvcnQgQCBibG9jayB7aGVhZH0gICh7bGVuKHZhbHMpfSB2YWxpZGF0b3JzLCBSUEMge1JQQ30pIikKcHJpbnQoZiJ7J3ZhbGlkYXRvcic6NDJ9IHsnc3Rha2UnOj4xMX0geydwb3dlcic6Pjd9IHsncGVuJzo+NH0geyd2b3Rlcyc6PjZ9ICBzdGF0dXMiKQpzbGFzaGVkID0gZXZpY3RlZCA9IDAKZm9yIHYgaW4gdmFsczoKICAgIGFjY3QgPSB2WzBdCiAgICBzdGFrZSA9IHZbMV1bMF0gLy8gT05FCiAgICBpZiBzdGFrZSA9PSAwOgogICAgICAgIGV2aWN0ZWQgKz0gMQogICAgICAgIHByaW50KGYie2FjY3Q6NDJ9IHtzdGFrZTo+MTF9IHsnLSc6Pjd9IHsnLSc6PjR9IHswOj42fSAgRVZJQ1RFRCAoc3Rha2UgMCkiKQogICAgICAgIGNvbnRpbnVlCiAgICBzdG9yZWQgPSBpbnQuZnJvbV9ieXRlcyh3My5ldGguZ2V0X3N0b3JhZ2VfYXQoRFBPUywgV2ViMy5rZWNjYWsoRklFTEQgKyBieXRlcy5mcm9taGV4KGFjY3RbMjpdKSkpLCAiYmlnIikKICAgIGZhY3RvciA9IChzdG9yZWQgLSAxKSBpZiBzdG9yZWQgZWxzZSBTQ0FMRQogICAgcGVuID0gcGVuYWx0aWVzX2ZvcihmYWN0b3IpCiAgICB2b3RlcyA9IGMuZnVuY3Rpb25zLmdldFZhbGlkYXRvckVsaWdpYmxlVm90ZXNDb3VudChhY2N0KS5jYWxsKCkKICAgIGVmZiA9IHN0YWtlICogZmFjdG9yIC8vIFNDQUxFCiAgICBpZiBlZmYgPCBFTElHOgogICAgICAgIHN0YXR1cyA9ICJJTkVMSUdJQkxFIgogICAgZWxpZiBmYWN0b3IgPCBTQ0FMRToKICAgICAgICBzdGF0dXMgPSAiU0xBU0hFRCIKICAgICAgICBzbGFzaGVkICs9IDEKICAgIGVsc2U6CiAgICAgICAgc3RhdHVzID0gIm9rIgogICAgcGVuX3MgPSBzdHIocGVuKSBpZiBwZW4gaXMgbm90IE5vbmUgZWxzZSAiPyIKICAgIHByaW50KGYie2FjY3Q6NDJ9IHtzdGFrZTo+MTF9IHtmYWN0b3IvMTAwOj42LjFmfSUge3Blbl9zOj40fSB7dm90ZXM6PjZ9ICB7c3RhdHVzfSIpCgpwcmludChmIlxue3NsYXNoZWR9IHZhbGlkYXRvcihzKSBiZWluZyBzbGFzaGVkLCB7ZXZpY3RlZH0gZXZpY3RlZCAoc3Rha2UgMCkuIikKc3lzLmV4aXQoMSBpZiAoc2xhc2hlZCBvciBldmljdGVkKSBlbHNlIDApCg==' | base64 -d > ~/ebla-slash-all
+```
+
+### STEP 3 — run it
+
+```bash
+EBLA_RPC=http://127.0.0.1:7777 ~/ebla-venv/bin/python3 ~/ebla-slash-all
+```
+
+> If this node isn't fully synced yet, point at one that is, e.g.
+> `EBLA_RPC=https://rpc.testnet.eblanetwork.com/`. The report reads **global** DPoS
+> state, so every node returns the same fleet.
+
+Example output (an evicted validator shown cleanly):
+
+```
+EBLA slash report @ block 280631  (9 validators, RPC http://127.0.0.1:7777)
+validator                                        stake   power  pen  votes  status
+0xc6cF7C14CA2308AA9269b9f3Aa8C711BB85481AB     1000000  100.0%    0   1000  ok
+0xb3beeF2d5696ae67611407DBC54C94a61A16D589      681091  100.0%    0    681  ok
+0x232efe2995Ea01e0c4a42f53E0504b6743b69f9E           0       -    -      0  EVICTED (stake 0)
+0x6234827B87e5F8313e3d16A95A5b3A9FC9a85521      511990  100.0%    0    511  ok
+...
+
+0 validator(s) being slashed, 1 evicted (stake 0).
+```
+
+| Column | Meaning |
+|---|---|
+| `power` | exact voting-power factor from storage — `100.0%` healthy, lower = slashed |
+| `pen` | number of −5% penalties taken (`95% → 1`, `90.25% → 2`, …) |
+| `votes` | live on-chain eligible votes |
+| `status` | `ok` / `SLASHED` / `INELIGIBLE` / `EVICTED (stake 0)` |
+
+Exit code is `1` if any validator is slashed or evicted, `0` if the whole fleet is
+healthy — drop it straight into `watch` or cron.
